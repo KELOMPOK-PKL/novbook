@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
+    <link rel="icon"  type="svg" href="{{ asset('image/logo_novbook.png')}}">
 
     <!-- Fonts -->
     <link
@@ -32,6 +33,8 @@
     >
         <div class="flex flex-col min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200">
             {{ $slot }}
+
+
 
             <x-footer />
         </div>

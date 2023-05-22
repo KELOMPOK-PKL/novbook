@@ -14,9 +14,19 @@
         </x-slot>
     </x-sidebar.link>
 
-    {{-- <x-sidebar.dropdown>
+    <x-sidebar.dropdown title="Post" :active="Str::startsWith(
+        request()
+            ->route()
+            ->uri(),
+        'post',
+    )">
+     <x-slot name="icon">
+        <i class="fa-solid fa-folder"></i>
+    </x-slot>
 
-    </x-sidebar.dropdown> --}}
+        <x-sidebar.sublink title="Post" href="{{ route('post.index') }}" :active="request()->routeIs('post')" />
+
+    </x-sidebar.dropdown>
 
 
 </x-perfect-scrollbar>

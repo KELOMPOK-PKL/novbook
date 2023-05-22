@@ -1,6 +1,10 @@
 <x-guest-layout>
     <x-auth-card>
-        <!-- Session Status -->
+        <center>
+            <x-application-logo />
+        </center>
+
+         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <!-- Validation Errors -->
@@ -8,7 +12,6 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
             <div class="grid gap-6">
                 <!-- Email Address -->
                 <div class="space-y-2">
