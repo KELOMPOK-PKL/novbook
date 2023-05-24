@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -15,7 +17,8 @@ class PostService
     private Post $post;
     private ?string $gambarBaru = null;
     private ?string $pdfBaru = null;
-
+    private ?string $pdfLama = null;
+    private ?string $gambarLama = null;
 
     public function __construct()
     {
@@ -24,64 +27,87 @@ class PostService
 
     public function index()
     {
-
         $post = Post::all();
         return $post;
-
-    }
-    public function store(PostRequest $request): Post
-    {
-        $data = $request->validated();
-        if ($request->hasFile('image')) {
-            $this->gambarBaru = $request->file('image')->store('img', 'public');
-            $data['image'] = $this->gambarBaru;
-        }
-
-        if($request->hasfile('pdf')) {
-            $this->pdfBaru = $request->file('pdf')->store('file', 'public');
-            $data['pdf'] = $this->pdfBaru;
-        }
-        $post = $this->post->create($data);
-
-        return $post;
     }
 
-    public function update(PostRequest $request,Post $post): post
+    public function store(StorePostRequest $request): Post
     {
-        $data = $request->validated();
-        if ($request->hasFile('image')) {
-            $this->gambarBaru = $request->file('image')->store('img', 'public');
-            $data['image'] = $this->gambarBaru;
+        DB::beginTransaction();
+        try {
+            $data = $request->validated();
+            if ($request->hasFile('image')) {
+                $this->gambarBaru = $request->file('image')->store('img', 'public');
+                $data['image'] = $this->gambarBaru;
+            }
+
+            if ($request->hasfile('pdf')) {
+                $this->pdfBaru = $request->file('pdf')->store('file', 'public');
+                $data['pdf'] = $this->pdfBaru;
+            }
+            $post = $this->post->create($data);
+            DB::commit();
+
+            return $post;
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-        $gambarLama = $post->image;
-        $post->update($data);
-        Storage::disk('public')->delete($gambarLama);
+    }
 
+    public function update(UpdatePostRequest $request, Post $post): post
+    {
+        DB::beginTransaction();
+        try {
+            $data = $request->validated();
+            if ($request->hasFile('image')) {
+                $this->gambarBaru = $request->file('image')->store('img', 'public');
+                $data['image'] = $this->gambarBaru;
+            }
 
-        if ($request->hasFile('pdf')) {
-            $this->pdfBaru = $request->file('pdf')->store('file', 'public');
-            $data['pdf'] = $this->pdfBaru;
+            $this->gambarLama = $post->image;
+            if ($request->hasFile('pdf')) {
+                $this->pdfBaru = $request->file('pdf')->store('file', 'public');
+                $data['pdf'] = $this->pdfBaru;
+            }
+
+            $this->pdfLama = $post->pdf;
+            $post->update($data);
+            DB::commit();
+            DB::afterCommit(function () {
+                if (!empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
+                    Storage::disk('public')->delete($this->gambarLama);
+                }
+                if (!empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
+                    Storage::disk('public')->delete($this->pdfLama);
+                }
+            });
+
+            return $post;
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-        $pdfLama = $post->pdf;
-        $post->update($data);
-        Storage::disk('public')->delete($pdfLama);
-
-        return $post;
     }
 
     public function delete(Post $post)
     {
-        $gambar_lama = $post->image;
-        $pdf_lama = $post->pdf;
-        $post->delete();
-        if(! empty($gambar_lama) && (Storage::disk('public'))->exists($gambar_lama)){
-            Storage::disk('public')->delete($gambar_lama);
-        }
+        DB::beginTransaction();
+        try {
+            $this->gambarLama = $post->image;
+            $this->pdfLama = $post->pdf;
+            $post->delete();
+            DB::commit();
+            DB::afterCommit(function () {
+                if (!empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
+                    Storage::disk('public')->delete($this->gambarLama);
+                }
 
-        if(! empty($pdf_lama) && (Storage::disk('public'))->exists($pdf_lama)){
-            Storage::disk('public')->delete($pdf_lama);
-        }
+                if (!empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
+                    Storage::disk('public')->delete($this->pdfLama);
+                }
+            });
 
-        return $post;
+            return $post;
+        } catch (\Exception $e) {
+        }
     }
 }

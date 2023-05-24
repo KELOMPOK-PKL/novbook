@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Post;
 use App\Services\PostService;
-use Illuminate\Http\Request;
-
-use function Pest\Laravel\post;
 
 class PostController extends Controller
 {
+    public string $postView = 'dashboard.post.';
     public PostService $postService;
     public function __construct()
     {
@@ -22,11 +21,11 @@ class PostController extends Controller
      */
     public function index()
     {
+        $postView = $this->postView;
 
         $post = $this->postService->index();
         // dd($post);
-        return view('dashboard.post.index', compact(['post']));
-
+        return view($postView . 'index', compact(['post']));
     }
 
     /**
@@ -34,17 +33,18 @@ class PostController extends Controller
      */
     public function create()
     {
-        $post = Post::all();
-        return view('Dashboard.post.create',compact('post'));
+        $postView = $this->postView;
+        return view($postView . 'create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store( PostRequest $request,PostService $postService )
+    public function store(StorePostRequest $request, PostService $postService)
     {
+        $postView = $this->postView;
         $postService->store($request);
-        return redirect()->route('post.index');
+        return redirect()->route($postView . 'index');
     }
 
     /**
@@ -58,20 +58,20 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::find($id);
-        return view('Dashboard.post.edit',compact(['post']));
-
+        $postView = $this->postView;
+        return view($postView . 'edit', compact(['post']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(PostRequest $request,PostService $postService, Post $post)
+    public function update(UpdatePostRequest $request, PostService $postService, Post $post)
     {
-        $postService->update($request,$post);
-        return redirect()->route('post.index');
+        $postView = $this->postView;
+        $postService->update($request, $post);
+        return redirect()->route($postView . 'index');
     }
 
     /**
@@ -79,7 +79,8 @@ class PostController extends Controller
      */
     public function destroy(PostService $postService, Post $post)
     {
+        $postView = $this->postView;
         $postService->delete($post);
-        return to_route('post.index');
+        return to_route($postView . 'index');
     }
 }

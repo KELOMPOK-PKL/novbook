@@ -13,6 +13,6 @@ class Post extends Model
         'name',
         'title',
         'image',
-        'Pdf',
+        'pdf',
     ];
 }
