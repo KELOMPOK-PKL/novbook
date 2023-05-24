@@ -22,8 +22,6 @@
                             <tr>
                                 <th scope="col" class="border px-4 py-2">Name</th>
                                 <th scope="col" class="border px-4 py-2">Title</th>
-                                <th scope="col" class="border px-4 py-2">Image</th>
-                                <th scope="col" class="border px-4 py-2">Pdf</th>
                                 <th scope="col" class="border px-4 py-2">Created_at</th>
                                 <th scope="col" class="border px-4 py-2">Option</th>
 
@@ -34,12 +32,6 @@
                             <tr>
                                 <td class="border px-4 py-2">{{ $p->name }}</td>
                                 <td class="border px-4 py-2">{{$p->title}}</td>
-                                <td class="border px-4 py-2 flex justify-center items-center">
-                                <img src="{{ asset('storage/' . $p->image) }}" class="w-32 m-3">
-                                </td>
-                                <td class="border px-4 py-2">
-                                <embed src="{{ asset('storage/'. $p->pdf) }}">
-                                </td>
                                 <td class="border px-4 py-2">{{ $p->created_at}}</td>
                                 <td class="border px-4 py-2 text-center">
                                     <form action="{{ route('post.destroy', $p->id) }}" method="POST"

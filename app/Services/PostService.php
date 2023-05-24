@@ -46,14 +46,14 @@ class PostService
         return $post;
     }
 
-    public function update(PostRequest $request,Post $post): Post
+    public function update(PostRequest $request,Post $post): post
     {
         $data = $request->validated();
         if ($request->hasFile('image')) {
             $this->gambarBaru = $request->file('image')->store('img', 'public');
             $data['image'] = $this->gambarBaru;
         }
-        $gambarLama = $post->gambar;
+        $gambarLama = $post->image;
         $post->update($data);
         Storage::disk('public')->delete($gambarLama);
 
@@ -71,7 +71,7 @@ class PostService
 
     public function delete(Post $post)
     {
-        $gambar_lama = $post->gambar;
+        $gambar_lama = $post->image;
         $pdf_lama = $post->pdf;
         $post->delete();
         if(! empty($gambar_lama) && (Storage::disk('public'))->exists($gambar_lama)){

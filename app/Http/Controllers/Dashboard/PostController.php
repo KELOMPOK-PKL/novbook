@@ -24,6 +24,7 @@ class PostController extends Controller
     {
 
         $post = $this->postService->index();
+        // dd($post);
         return view('dashboard.post.index', compact(['post']));
 
     }
@@ -49,7 +50,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post)
     {
         //
     }
@@ -57,25 +58,28 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('Dashboard.post.edit',compact(['post']));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PostRequest $request,PostService $postService, Post $post)
     {
-        //
+        $postService->update($request,$post);
+        return redirect()->route('post.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostService $postService, Post  $post)
+    public function destroy(PostService $postService, Post $post)
     {
         $postService->delete($post);
-        return to_route('dashboard.post.index');
+        return to_route('post.index');
     }
 }
