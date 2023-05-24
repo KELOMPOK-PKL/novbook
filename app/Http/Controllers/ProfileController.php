@@ -11,6 +11,7 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    private string $profileView = 'dashboard.post.';
     /**
      * Display the user's profile form.
      */
@@ -34,7 +35,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('dashboard.profile.edit')->with('status', 'profile-updated');
     }
 
     /**

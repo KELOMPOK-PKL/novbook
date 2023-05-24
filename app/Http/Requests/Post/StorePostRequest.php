@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class StorePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return \true;
     }
 
     /**
@@ -25,11 +25,11 @@ class PostRequest extends FormRequest
             'name' => 'required',
             'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10248',
-            'pdf'=> 'required|mimes:pdf|max:10248',
+            'pdf' => 'required|mimes:pdf|max:10248',
         ];
     }
 
-    public function messages() : array
+    public function messages(): array
     {
         return [
             'name.required' => 'Kolom name harus di isi',
@@ -43,6 +43,4 @@ class PostRequest extends FormRequest
             'pdf.max' => 'Pdf maksimum yaitu 10MB',
         ];
     }
-
-
 }
