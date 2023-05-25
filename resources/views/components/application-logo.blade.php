@@ -1,2 +1,1 @@
-<img style="width: 100px
-" src="{{ asset('image/logo_novbook.png')}}" />
+<img class="h-10 w-10" src="{{ asset('image/logo_novbook.png')}}" />

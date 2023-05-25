@@ -14,6 +14,7 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen" style="background-color: #FAF8F1">
+      <x-navbar.navbar></x-navbar.navbar>
 
     <!-- Page Heading -->
     @if (isset($header))
@@ -28,6 +29,7 @@
     <main class="min-h-screen" style="background-color: #FAF8F1">
         {{$slot}}
     </main>
+    <x-footer.footer/>
 </div>
 
 
