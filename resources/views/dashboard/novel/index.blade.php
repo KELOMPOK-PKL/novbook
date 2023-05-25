@@ -14,7 +14,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 overflow-x-auto">
                     <a href="{{ route('dashboard.novel.create') }}">
                         <x-primary-button class="mb-3">
-                            Add Product
+                            Add Novel
                         </x-primary-button>
                     </a>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

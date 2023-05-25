@@ -22,10 +22,8 @@ class UpdatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'nullable',
-            'title' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10248',
-            'pdf' => 'nullable|mimes:pdf|max:10248',
+
         ];
     }
 
@@ -35,8 +33,6 @@ class UpdatePostRequest extends FormRequest
             'image.image' => 'Kolom image harus berupa image',
             'image.mimes' => 'Image harus berformat jpeg, png, jpg, gif, atau svg',
             'image.max' => 'Image maksimum yaitu 10MB',
-            'pdf.mimes' => 'Pdf harus berformat pdf',
-            'pdf.max' => 'Pdf maksimum yaitu 10MB',
         ];
     }
 }

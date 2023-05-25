@@ -17,10 +17,6 @@ class PostService
 
     private ?string $gambarBaru = null;
 
-    private ?string $pdfBaru = null;
-
-    private ?string $pdfLama = null;
-
     private ?string $gambarLama = null;
 
     public function __construct()
@@ -45,10 +41,6 @@ class PostService
                 $data['image'] = $this->gambarBaru;
             }
 
-            if ($request->hasfile('pdf')) {
-                $this->pdfBaru = $request->file('pdf')->store('file', 'public');
-                $data['pdf'] = $this->pdfBaru;
-            }
             $post = $this->post->create($data);
             DB::commit();
 
@@ -69,20 +61,11 @@ class PostService
             }
 
             $this->gambarLama = $post->image;
-            if ($request->hasFile('pdf')) {
-                $this->pdfBaru = $request->file('pdf')->store('file', 'public');
-                $data['pdf'] = $this->pdfBaru;
-            }
-
-            $this->pdfLama = $post->pdf;
             $post->update($data);
             DB::commit();
             DB::afterCommit(function () {
                 if (! empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
                     Storage::disk('public')->delete($this->gambarLama);
-                }
-                if (! empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
-                    Storage::disk('public')->delete($this->pdfLama);
                 }
             });
 
@@ -97,16 +80,11 @@ class PostService
         DB::beginTransaction();
         try {
             $this->gambarLama = $post->image;
-            $this->pdfLama = $post->pdf;
             $post->delete();
             DB::commit();
             DB::afterCommit(function () {
                 if (! empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
                     Storage::disk('public')->delete($this->gambarLama);
-                }
-
-                if (! empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
-                    Storage::disk('public')->delete($this->pdfLama);
                 }
             });
 

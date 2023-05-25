@@ -22,25 +22,18 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10248',
-            'pdf' => 'required|mimes:pdf|max:10248',
+
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Kolom name harus di isi',
-            'title.required' => 'Kolom title harus di isi',
             'image.required' => 'Kolom image harus di isi',
             'image.image' => 'Kolom image harus berupa image',
             'image.mimes' => 'Image harus berformat jpeg, png, jpg, gif, atau svg',
             'image.max' => 'Image maksimum yaitu 10MB',
-            'pdf.required' => 'kolom pdf harus di isi',
-            'pdf.mimes' => 'Pdf harus berformat pdf',
-            'pdf.max' => 'Pdf maksimum yaitu 10MB',
         ];
     }
 }
