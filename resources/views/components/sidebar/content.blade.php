@@ -6,17 +6,34 @@
         </x-slot>
     </x-sidebar.link>
 
-    <x-sidebar.dropdown title="Post" :active="Str::startsWith(
+    <x-sidebar.dropdown title="Post" class="ml-2" :active="Str::startsWith(
         request()
             ->route()
             ->uri(),
         'post',
     )">
         <x-slot name="icon">
-            <i class="fa-solid fa-folder"></i>
+            <i class="fa-solid fa-folder ml-1"></i>
         </x-slot>
 
         <x-sidebar.sublink title="Post" href="{{ route('dashboard.post.index') }}" :active="request()->routeIs('post')" />
+
+    </x-sidebar.dropdown>
+
+    <x-sidebar.dropdown title="Novels" class="ml-1" :active="Str::startsWith(
+        request()
+            ->route()
+            ->uri(),
+        'post',
+    )">
+        <x-slot name="icon">
+            <i class="fa-solid fa-folder ml-1"></i>
+        </x-slot>
+
+        <x-sidebar.sublink title="Novel" href="{{ route('dashboard.novel.index') }}" :active="request()->routeIs('novel')" />
+        <x-sidebar.sublink title="Chapter" href="{{ route('dashboard.chapter.index') }}" :active="request()->routeIs('chapter')" />
+        <x-sidebar.sublink title="Novel Category" href="{{ route('dashboard.novel-category.index') }}"
+            :active="request()->routeIs('novel-category')" />
 
     </x-sidebar.dropdown>
 
