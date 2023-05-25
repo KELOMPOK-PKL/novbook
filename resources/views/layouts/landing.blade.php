@@ -14,12 +14,14 @@
 </head>
 
 <body class="font-sans antialiased">
+    <x-navbar.navbar>
+        @foreach ($novelCategory as $category)
+            <x-navbar.dropdown-link href="#">{{ $category->title }}</x-navbar.dropdown-link>
+        @endforeach
+    </x-navbar.navbar>
     <div class="min-h-screen" style="background-color: #FAF8F1">
-        <x-navbar.navbar>
-            @foreach ($novelCategory as $category)
-                <x-navbar.dropdown-link href="#">{{ $category->title }}</x-navbar.dropdown-link>
-            @endforeach
-        </x-navbar.navbar>
+          <!-- navbar -->
+
 
         <!-- Page Heading -->
         @if (isset($header))

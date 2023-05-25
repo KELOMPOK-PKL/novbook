@@ -1,5 +1,4 @@
-<footer class="flex-shrink-0 px-6 py-4 bg-gray-400">
-    <hr class="my-6 border-gray-900 sm:mx-auto dark:border-gray-700 lg:my-8" />
+<footer class="flex-shrink-0 px-8 py-6 bg-white">
     <div class="flex justify-between">
         <div>
 
