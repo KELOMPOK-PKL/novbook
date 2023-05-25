@@ -10,14 +10,17 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Class PostService
- * @package App\Services
  */
 class PostService
 {
     private Post $post;
+
     private ?string $gambarBaru = null;
+
     private ?string $pdfBaru = null;
+
     private ?string $pdfLama = null;
+
     private ?string $gambarLama = null;
 
     public function __construct()
@@ -28,6 +31,7 @@ class PostService
     public function index()
     {
         $post = Post::all();
+
         return $post;
     }
 
@@ -74,10 +78,10 @@ class PostService
             $post->update($data);
             DB::commit();
             DB::afterCommit(function () {
-                if (!empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
+                if (! empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
                     Storage::disk('public')->delete($this->gambarLama);
                 }
-                if (!empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
+                if (! empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
                     Storage::disk('public')->delete($this->pdfLama);
                 }
             });
@@ -97,11 +101,11 @@ class PostService
             $post->delete();
             DB::commit();
             DB::afterCommit(function () {
-                if (!empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
+                if (! empty($this->gambarLama) && (Storage::disk('public'))->exists($this->gambarLama)) {
                     Storage::disk('public')->delete($this->gambarLama);
                 }
 
-                if (!empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
+                if (! empty($this->pdfLama) && (Storage::disk('public'))->exists($this->pdfLama)) {
                     Storage::disk('public')->delete($this->pdfLama);
                 }
             });

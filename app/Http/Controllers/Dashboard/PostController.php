@@ -11,11 +11,14 @@ use App\Services\PostService;
 class PostController extends Controller
 {
     public string $postView = 'dashboard.post.';
+
     public PostService $postService;
+
     public function __construct()
     {
         $this->postService = new PostService;
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -25,7 +28,7 @@ class PostController extends Controller
 
         $post = $this->postService->index();
         // dd($post);
-        return view($postView . 'index', compact(['post']));
+        return view($postView.'index', compact(['post']));
     }
 
     /**
@@ -34,7 +37,8 @@ class PostController extends Controller
     public function create()
     {
         $postView = $this->postView;
-        return view($postView . 'create');
+
+        return view($postView.'create');
     }
 
     /**
@@ -44,7 +48,8 @@ class PostController extends Controller
     {
         $postView = $this->postView;
         $postService->store($request);
-        return redirect()->route($postView . 'index');
+
+        return redirect()->route($postView.'index');
     }
 
     /**
@@ -61,7 +66,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $postView = $this->postView;
-        return view($postView . 'edit', compact(['post']));
+
+        return view($postView.'edit', compact(['post']));
     }
 
     /**
@@ -71,7 +77,8 @@ class PostController extends Controller
     {
         $postView = $this->postView;
         $postService->update($request, $post);
-        return redirect()->route($postView . 'index');
+
+        return redirect()->route($postView.'index');
     }
 
     /**
@@ -81,6 +88,7 @@ class PostController extends Controller
     {
         $postView = $this->postView;
         $postService->delete($post);
-        return to_route($postView . 'index');
+
+        return to_route($postView.'index');
     }
 }

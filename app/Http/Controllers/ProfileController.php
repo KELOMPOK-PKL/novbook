@@ -12,6 +12,7 @@ use Illuminate\View\View;
 class ProfileController extends Controller
 {
     private string $profileView = 'dashboard.post.';
+
     /**
      * Display the user's profile form.
      */

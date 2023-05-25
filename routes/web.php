@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dashboard\PostController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +14,7 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('landingpage.index');
+    return view('landing-page.home.index');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

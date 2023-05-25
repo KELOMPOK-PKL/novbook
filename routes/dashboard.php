@@ -11,4 +11,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', 'ProfileController@update')->name('profile.update');
     Route::delete('/profile', 'ProfileController@destroy')->name('profile.destroy');
     Route::resource('/post', 'Dashboard\PostController');
+    Route::resource('/novel', 'Dashboard\NovelController');
+    Route::resource('/chapter', 'Dashboard\ChapterController');
+    Route::resource('/novel-category', 'Dashboard\NovelCategoryController');
 });
