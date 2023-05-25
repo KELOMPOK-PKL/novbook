@@ -40,7 +40,10 @@
                     x-transition:leave-end="transform opacity-0 scale-95"
                     class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
                     <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                        <x-navbar.dropdown-link href="#"></x-navbar.dropdown-link>
+                        {{-- @foreach ($novelCategory as $category) --}}
+                        {{ $slot }}
+
+                        {{-- @endforeach --}}
                     </div>
                 </div>
             </div>
