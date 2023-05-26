@@ -1,5 +1,5 @@
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-<div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+
+<nav class="fixed z-30 w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
     <div x-data="{ open: false }"
         class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
         <div class="p-4 flex flex-row items-center justify-between">
@@ -18,7 +18,7 @@
                 </svg>
             </button>
         </div>
-        <nav :class="{ 'flex': open, 'hidden': !open }"
+        <div :class="{ 'flex': open, 'hidden': !open }"
             class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
             <x-navbar.link href="{{ route('landing.home') }}">Home</x-navbar.link>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
@@ -48,6 +48,6 @@
                 </div>
             </div>
             <x-navbar.link href="#">Contact</x-navbar.link>
-        </nav>
+        </div>
     </div>
-</div>
+</nav>

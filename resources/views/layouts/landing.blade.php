@@ -8,9 +8,11 @@
 
     <title>{{ config('app.name') }}</title>
     <link rel="icon" type="svg" href="{{ asset('image/logo_novbook.png') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"  rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body class="font-sans antialiased">
@@ -33,13 +35,16 @@
         @endif
 
         <!-- Page Content -->
-        <main class="min-h-screen" style="background-color: #FAF8F1">
+        <main class="min-h-screen pt-20" style="background-color: #FAF8F1">
             {{ $slot }}
         </main>
-        <x-footer.footer />
+
     </div>
+    <!--footer -->
+    <x-footer.footer />
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </body>
 
 </html>
