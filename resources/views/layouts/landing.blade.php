@@ -35,7 +35,7 @@
         @endif
 
         <!-- Page Content -->
-        <main class="min-h-screen pt-20" style="background-color: #FAF8F1">
+        <main class="min-h-screen pt-20" style="background-color: #edededd2">
             {{ $slot }}
         </main>
 
