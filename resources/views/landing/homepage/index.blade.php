@@ -16,23 +16,33 @@
         <br />
         <div>
             <x-content.horizontal>
-                @foreach ($novelCategory as $nc )
-                <div class="inline-block px-3">
-                    <div class="w-44 h-14 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                        <div class="flex justify-center items-center mt-4">
-                            <p  class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$nc->title }}</p>
+                @foreach ($novelCategory as $nc)
+                    <div class="inline-block px-3">
+                        <div
+                            class="w-44 h-14 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                            <div class="flex justify-center items-center mt-4">
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $nc->title }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </x-content.horizontal>
 
         </div>
-        {{-- <div>
-            <x-content.card>
-
-            </x-content.card>
-        </div> --}}
+            <div>
+                @foreach ($novels as $n)
+                    <x-content.card>
+                        <img class="w-full" src="{{ asset('storage/' . $n->image)}}" alt="Mountain">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">{{ $n->title}}</div>
+                                <p class="text-gray-700 text-base">
+                                    {{ $n->description}}
+                                </p>
+                            </div>
+                        </div>
+                    </x-content.card>
+                @endforeach
+            </div>
         <br />
     </div>
 
