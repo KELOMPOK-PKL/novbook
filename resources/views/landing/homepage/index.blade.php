@@ -16,12 +16,15 @@
         <br />
         <div>
             <x-content.horizontal>
-                @foreach ($novelCategory as $nc)
+                @foreach ($novelCategory as $category)
                     <div class="inline-block px-3">
                         <div
                             class="w-44 h-14 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                             <div class="flex justify-center items-center mt-4">
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $nc->title }}</p>
+                                <a href="{{ route('landing.category', $category->slug) }}">
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $category->title }}
+                                    </p>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -41,8 +44,8 @@
                     </div>
                 </x-content.card>
             @endforeach
-    </div>
-    <br />
+        </div>
+        <br />
     </div>
 
 

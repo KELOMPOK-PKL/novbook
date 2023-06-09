@@ -22,7 +22,7 @@ class NovelController extends Controller
 
     public function index()
     {
-        $novels = $this->novelService->index();
+        $novels = $this->novelService->index()->get();
         $novelView = $this->novelView;
 
         return view($novelView . 'index', compact('novels'));

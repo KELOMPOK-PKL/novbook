@@ -27,7 +27,7 @@ class NovelService
 
     public function index()
     {
-        $novel = $this->novel->query()->with('chapters')->get();
+        $novel = $this->novel->query()->with('chapters');
 
         return $novel;
     }
