@@ -29,21 +29,20 @@
             </x-content.horizontal>
 
         </div>
-            <div>
-                @foreach ($novels as $n)
-                    <x-content.card>
-                        <img class="w-full" src="{{ asset('storage/' . $n->image)}}" alt="Mountain">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">{{ $n->title}}</div>
-                                <p class="text-gray-700 text-base">
-                                    {{ $n->description}}
-                                </p>
-                            </div>
-                        </div>
-                    </x-content.card>
-                @endforeach
-            </div>
-        <br />
+        <div class="grid grid-cols-4 gap-2 p-10 ">
+            @foreach ($novels as $n)
+                <x-content.card>
+                    <img class="w-full" src="{{ asset('storage/' . $n->image) }}" alt="Mountain">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2">{{ $n->title }}</div>
+                        <p class="text-gray-700 text-base">
+                            {{ $n->description }}
+                        </p>
+                    </div>
+                </x-content.card>
+            @endforeach
+    </div>
+    <br />
     </div>
 
 
