@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <x-navbar.link href="#">Contact</x-navbar.link>
+            <x-navbar.link href="{{ route('landing.contact.index')}}">Contact</x-navbar.link>
         </div>
     </div>
 </nav>
