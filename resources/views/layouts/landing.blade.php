@@ -8,21 +8,29 @@
 
     <title>{{ config('app.name') }}</title>
     <link rel="icon" type="svg" href="{{ asset('image/logo_novbook.png') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"  rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
 
 </head>
 
 <body class="font-sans antialiased">
-    <x-navbar.navbar>
-        @foreach ($novelCategory as $category)
-            <x-navbar.dropdown-link href="#">{{ $category->title }}</x-navbar.dropdown-link>
-        @endforeach
-    </x-navbar.navbar>
+
     <div class="min-h-screen" style="background-color: #FAF8F1">
-          <!-- navbar -->
+        <!-- navbar -->
+        <div>
+            <x-navbar.navbar>
+                @foreach ($novelCategory as $category)
+                    <x-navbar.dropdown-link href="{{ route('landing.category', $category->slug) }}">
+                        {{ $category->title }}</x-navbar.dropdown-link>
+                @endforeach
+            </x-navbar.navbar>
+        </div>
 
 
         <!-- Page Heading -->
@@ -35,7 +43,7 @@
         @endif
 
         <!-- Page Content -->
-        <main class="min-h-screen pt-20" style="background-color: #edededd2">
+        <main class=" min-h-screen pt-20" style="background-color: #edededd2">
             {{ $slot }}
         </main>
 
@@ -43,6 +51,7 @@
     <!--footer -->
     <x-footer.footer />
 
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </body>
