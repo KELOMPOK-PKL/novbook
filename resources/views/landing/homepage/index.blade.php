@@ -16,7 +16,7 @@
 
         </div>
         <br />
-        <div >
+        <div>
 
             <x-content.horizontal>
                 @foreach ($novelCategory as $category)
@@ -35,21 +35,25 @@
             </x-content.horizontal>
 
         </div>
-        <br />
-
-        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 lg:grid-cols-5 gap-5 bg-black p-5">
-            @foreach ($novels as $n)
-                <x-content.card>
-                    <img class="w-full h-64 object-cover" src="{{ asset('storage/' . $n->image) }}" alt="Mountain">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-lg  mb-2">{{ $n->title }}</div>
-                        <p class="text-gray-700 text-base">
-                            {{ $n->description }}
-                        </p>
-                    </div>
-                </x-content.card>
-            @endforeach
+        <br/>
+        <div class="flex justify-center items-center mb-10">
+            <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-4 p-5 w-5/6 ">
+                @foreach ($novels as $key => $n)
+                @if ($key < 4)
+                    <x-content.card >
+                        <img class="w-full h-64 object-cover hover:shadow-xl transition-shadow duration-300 ease-in-out" src="{{ asset('storage/' . $n->image) }}" alt="...">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-lg  mb-2">{{ $n->title }}</div>
+                            <p class="text-gray-700 text-base">
+                                {{ $n->description }}
+                            </p>
+                        </div>
+                    </x-content.card>
+                @endif
+                @endforeach
+            </div>
         </div>
+
         <br />
     </div>
 
