@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Models\NovelCategory;
 use App\Services\NovelService;
 
 
@@ -23,7 +24,8 @@ class NovelCategoryController extends Controller
             ->whereHas('category', function ($query) use ($page) {
                 $query->where('title', 'like', '%' . $page . '%');
             })->get();
+            $novelCategory = NovelCategory::where('slug', $page )->first();
 
-        return \view('landing.novel-category.index', \compact('novels'));
+        return \view('landing.novel-category.index', \compact('novels','novelCategory'));
     }
 }

@@ -5,8 +5,7 @@
             <x-content.carousel>
                 <div>
                     @foreach ($post as $p)
-                        <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                            data-te-carousel-item data-te-carousel-active>
+                        <div class="hidden duration-200 ease-linear" data-carousel-item>
                             <img src="{{ asset('storage/' . $p->image) }}" class="block w-full" alt="Wild Landscape" />
                         </div>
                     @endforeach
@@ -35,21 +34,25 @@
             </x-content.horizontal>
 
         </div>
-        <br/>
+        <br />
         <div class="flex justify-center items-center mb-10">
             <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-4 p-5 w-5/6 ">
-                @foreach ($novels as $key => $n)
-                @if ($key < 4)
-                    <x-content.card >
-                        <img class="w-full h-64 object-cover hover:shadow-xl transition-shadow duration-300 ease-in-out" src="{{ asset('storage/' . $n->image) }}" alt="...">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-lg  mb-2">{{ $n->title }}</div>
-                            <p class="text-gray-700 text-base">
-                                {{ $n->description }}
-                            </p>
-                        </div>
-                    </x-content.card>
-                @endif
+                @php
+                    $count = 0;
+                @endphp
+                @foreach ($novels as $n)
+                    @if ($count < 4 && $n->category->slug === "artikel")
+                        <x-content.card>
+                            <img class="w-full h-64 object-cover hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                                src="{{ asset('storage/' . $n->image) }}" alt="...">
+                            <div class="px-6 py-4">
+                                <div class="font-bold text-lg  mb-2">{{ $n->title }}</div>
+                                <p class="text-gray-700 text-base">
+                                    {{ $n->description }}
+                                </p>
+                            </div>
+                        </x-content.card>
+                    @endif
                 @endforeach
             </div>
         </div>

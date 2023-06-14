@@ -1,4 +1,4 @@
-@foreach ($novels as $novel)
-    {{ $novel->title }}
-@endforeach
-<x-landing-layout></x-landing-layout>
+<x-landing-layout>
+    {{ $novelCategory->title}}
+    {{ $novels->count() }}
+</x-landing-layout>
