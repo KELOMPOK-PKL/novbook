@@ -43,7 +43,7 @@
                 @foreach ($novels as $n)
                     @if ($count < 4 && $n->category->slug === "artikel")
                         <x-content.card>
-                            <img class="w-full h-48 md:h-64 object-cover hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                            <img class="w-full h-52 md:h-72 object-cover hover:shadow-xl transition-shadow duration-300 ease-in-out"
                                 src="{{ asset('storage/' . $n->image) }}" alt="...">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-lg  mb-2">{{ $n->title }}</div>
