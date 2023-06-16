@@ -1,6 +1,6 @@
 <x-landing-layout>
 
-    <div>
+    <div class="w-full container">
         <div class="flex justify-center items-center">
             <x-content.carousel>
                 <div>
@@ -35,7 +35,7 @@
 
         </div>
         <br />
-        <div class="flex justify-center items-center mb-10">
+        <div class="mr-5 mb-10">
             <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-4 p-5 w-5/6 ">
                 @php
                     $count = 0;

@@ -15,6 +15,9 @@ module.exports = {
             fontFamily: {
                 sans: ["Inter", ...defaultTheme.fontFamily.sans],
             },
+            container:{
+                center: true,
+            },
 
             colors: {
                 dark: {

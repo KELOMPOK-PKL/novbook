@@ -1,4 +1,4 @@
 <x-landing-layout>
     {{ $novelCategory->title }}
-    ({{ $novelCategory->novel-n>count() }})
+    ({{ $novelCategory->novel->count() }})
 </x-landing-layout>
