@@ -35,15 +35,15 @@
 
         </div>
         <br />
-        <div class="mr-5 mb-10">
-            <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-4 p-5 w-5/6 ">
+        <div >
+            <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5 ">
                 @php
                     $count = 0;
                 @endphp
                 @foreach ($novels as $n)
                     @if ($count < 4 && $n->category->slug === "artikel")
                         <x-content.card>
-                            <img class="w-full h-64 object-cover hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                            <img class="w-full h-48 md:h-64 object-cover hover:shadow-xl transition-shadow duration-300 ease-in-out"
                                 src="{{ asset('storage/' . $n->image) }}" alt="...">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-lg  mb-2">{{ $n->title }}</div>
