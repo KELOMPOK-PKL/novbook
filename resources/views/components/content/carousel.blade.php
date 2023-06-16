@@ -1,7 +1,7 @@
 
 
 
-<div id="animation-carousel" class="relative w-5/6 " data-carousel="static">
+<div id="" class="relative w-5/6 " data-carousel="static">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         {{$slot}}

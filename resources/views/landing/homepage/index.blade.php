@@ -5,8 +5,8 @@
             <x-content.carousel>
                 <div>
                     @foreach ($post as $p)
-                        <div class="hidden duration-200 ease-linear" data-carousel-item>
-                            <img src="{{ asset('storage/' . $p->image) }}" class="block w-full" alt="Wild Landscape" />
+                        <div class="hidden duration-500 ease-linear" data-carousel-item>
+                            <img src="{{ asset('storage/' . $p->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Wild Landscape" />
                         </div>
                     @endforeach
                 </div>

@@ -10,7 +10,7 @@
     <link rel="icon" type="svg" href="{{ asset('image/logo_novbook.png') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-    
+
 
 
     <!-- Scripts -->
@@ -27,7 +27,7 @@
             <x-navbar.navbar>
                 @foreach ($novelCategory as $category)
                     <x-navbar.dropdown-link href="{{ route('landing.category', $category->slug) }}">
-                        {{ $category->title }}</x-navbar.dropdown-link>
+                        {{ $category->title }} ({{ $category->novel->count() }})</x-navbar.dropdown-link>
                 @endforeach
             </x-navbar.navbar>
         </div>
