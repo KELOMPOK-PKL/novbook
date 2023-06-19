@@ -24,7 +24,7 @@
     <div class="min-h-screen" style="background-color: #FAF8F1">
         <!-- navbar -->
         <div>
-            <x-navbar.navbar>
+            <x-navbar.navbar class=" rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
                 @foreach ($novelCategory as $category)
                     <x-navbar.dropdown-link href="{{ route('landing.category', $category->slug) }}">
                         {{ $category->title }} ({{ $category->novel->count() }})</x-navbar.dropdown-link>
