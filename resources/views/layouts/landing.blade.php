@@ -43,7 +43,7 @@
         @endif
 
         <!-- Page Content -->
-        <main class=" min-h-screen pt-20 bg-slate-50">
+        <main class=" min-h-screen pt-20 bg-slate-50 dark:bg-gray-800">
             {{ $slot }}
         </main>
 
