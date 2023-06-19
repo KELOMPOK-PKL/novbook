@@ -1,5 +1,4 @@
 <x-landing-layout>
-    <div class="bg-slate-50">
         <div class="w-full container">
             <div class="flex justify-center items-center">
                 <x-content.carousel>
@@ -36,7 +35,7 @@
             </div>
             <br />
             <div>
-                <a class="font-bold text-3xl lg:p-5 ">#Cerita Pendek</a>
+                <a class="font-bold text-3xl lg:p-8 ">Cerita Pendek</a>
                 <div>
                     <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 p-8">
                         @php
@@ -61,7 +60,7 @@
             </div>
             <br />
             <div>
-                <a class="font-bold text-3xl lg:p-5 ">#Artikel</a>
+                <a class="font-bold text-3xl lg:p-8 ">Artikel</a>
                 <div>
                     <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 p-8">
                         @php
@@ -86,7 +85,7 @@
             </div>
             <br />
             <div>
-                <a class="font-bold text-3xl lg:p-5 ">#Misteri</a>
+                <a class="font-bold text-3xl lg:p-8 ">Misteri</a>
                 <div>
                     <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 p-8">
                         @php
@@ -111,6 +110,4 @@
             </div>
             <br />
         </div>
-    </div>
-
 </x-landing-layout>

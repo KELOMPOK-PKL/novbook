@@ -22,8 +22,8 @@ class NovelCategoryController extends Controller
     {
         $novels = $this->novelService->index()
             ->whereHas('category', function ($query) use ($page) {
-                $query->where('title', 'like', '%' . $page . '%');
-            })->get();
+                $query->where('slug', $page);
+            })->paginate(10);
             $novelCategory = NovelCategory::where('slug', $page )->first();
 
         return \view('landing.novel-category.index', \compact('novels','novelCategory'));
