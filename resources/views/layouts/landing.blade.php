@@ -21,7 +21,7 @@
 
 <body class="font-sans antialiased">
 
-    <div class="min-h-screen" style="background-color: #FAF8F1">
+    <div class="min-h-screen" style="background-color:  #FAF8F1">
         <!-- navbar -->
         <div>
             <x-navbar.navbar>
@@ -43,7 +43,7 @@
         @endif
 
         <!-- Page Content -->
-        <main class=" min-h-screen pt-20" style="background-color: #edededd2">
+        <main class=" min-h-screen pt-20 bg-slate-50">
             {{ $slot }}
         </main>
 
