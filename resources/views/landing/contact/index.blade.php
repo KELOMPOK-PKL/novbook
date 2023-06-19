@@ -6,11 +6,11 @@
 
                 <h1 class="mt-2 text-2xl font-bold text-gray-800 md:text-3xl dark:text-white">CONTACT US</h1>
 
-                <p class="mt-8 text-gray-500 dark:text-gray-500">If you have questions about Novbook, you can contact us
+                <p data-aos="fade-up" data-aos-duration="2000" class="mt-8 text-gray-500 dark:text-gray-500">If you have questions about Novbook, you can contact us
                     below.</p>
             </div>
 
-            <form class="mt-28">
+            <form data-aos="fade-up" data-aos-duration="2000" class="mt-28">
                 <div class="-mx-2 md:items-center md:flex">
                     <div class="flex-1 px-2">
                         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200 font-semibold">Full Name</label>
@@ -34,7 +34,7 @@
             </form>
         </div>
 
-        <div class="container px-6 py-12 mx-auto">
+        <div data-aos="fade-up" data-aos-duration="2000" class="container px-6 py-12 mx-auto">
             <div>
                 <h1 class="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">Find Us</h1>
 
