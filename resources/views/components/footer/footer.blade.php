@@ -1,11 +1,11 @@
 <!--Footer container-->
 <footer class="bg-gray-700 text-white">
     <div class="container mx-auto py-8">
-            <div class="grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 lg:grid-cols-2 grid-cols-1">
                 <div class="mb-6 md:mb-0">
                     <h5 class="mb-2 font-medium uppercase text-center">Tentang kami</h5>
 
-                    <p class="p-8 mr-10 text-center">
+                    <p class="p-8 text-center">
                         Novbook adalah website penyediaan Novel yang dapat
                         kalian baca kapanpun dan dimanapun
                     </p>
