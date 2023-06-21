@@ -1,21 +1,21 @@
 <!--Footer container-->
-<footer class="bg-gray-700 text-white">
+<footer class="bg-gray-700 text-white" >
     <div class="container mx-auto py-8">
             <div class="grid gap-4 lg:grid-cols-2">
                 <div class="mb-6 md:mb-0">
                     <h5 class="mb-2 font-medium uppercase text-center">Tentang kami</h5>
 
-                    <p class="p-8">
+                    <p class="p-8 mr-10">
                         Kami adalah website penyedian novel yang dapat
                         kalian baca disaat luang kapan pun dimana pun
                         kalian mau
                     </p>
                 </div>
-                <div class="mb-9 md:mb-0 flex flex-col  justify-center  ">
-                    <a href="{{ route('landing.contact.index') }}" class="text-center">
-                        <h5 class="mb-2 font-medium uppercase">Hubungi kami</h5>
+                <div class="mb-6 md:mb-0 flex flex-col  justify-center  ">
+                    <a href="{{ route('landing.contact.index') }}">
+                        <h5 class="mb-2 font-medium uppercase text-center ">Hubungi kami</h5>
                     </a>
-                    <div class="mb-4 flex justify-center ">
+                    <div class="mb-4 flex justify-center p-8 ">
                         <a href="#!" class="mr-9 text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
                                 viewBox="0 0 24 24">
@@ -65,7 +65,7 @@
     </div>
 
     <!--Copyright section-->
-    <div class="p-4 text-center">
+    <div class="p-4 text-center" >
         © 2023
         <a href="{{ route('dashboard.home') }}">Novbook™ . All Rights Reserved.</a>
     </div>
