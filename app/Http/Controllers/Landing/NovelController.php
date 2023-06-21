@@ -8,22 +8,13 @@ use Illuminate\Http\Request;
 
 class NovelController extends Controller
 {
-    public NovelService $novelService;
 
-    public function __construct()
-    {
-       $this->novelService = new NovelService();
-
-    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-        // $novelS = $this->novelService->index()->paginate(1);
-
-        // return view('landing.novel-category.index');
+        return view('landing.novel.index');
     }
 
     /**

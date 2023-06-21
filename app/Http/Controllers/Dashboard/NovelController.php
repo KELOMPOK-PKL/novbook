@@ -56,16 +56,17 @@ class NovelController extends Controller
     {
         $novelView = $this->novelView;
         $novel = $this->novelService->update($request, $novel);
-        $novelCateogries = NovelCategory::all();
+        $novelCategory = NovelCategory::all();
 
-        return to_route($novelView . 'index', compact('novel', 'novelCategories'));
+        return to_route($novelView . 'index', compact('novel', 'novelCategory'));
     }
 
     public function edit(Novel $novel)
     {
         $novelView = $this->novelView;
+        $novelCategory = NovelCategory::all();
 
-        return view($novelView . 'edit', compact('novel'));
+        return view($novelView . 'edit', compact('novel', 'novelCategory'));
     }
 
     public function destroy(Novel $novel)
