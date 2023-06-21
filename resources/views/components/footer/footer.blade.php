@@ -1,14 +1,13 @@
 <!--Footer container-->
-<footer class="bg-gray-700 text-white" >
+<footer class="bg-gray-700 text-white">
     <div class="container mx-auto py-8">
             <div class="grid gap-4 lg:grid-cols-2">
                 <div class="mb-6 md:mb-0">
                     <h5 class="mb-2 font-medium uppercase text-center">Tentang kami</h5>
 
-                    <p class="p-8 mr-10">
-                        Kami adalah website penyedian novel yang dapat
-                        kalian baca disaat luang kapan pun dimana pun
-                        kalian mau
+                    <p class="p-8 mr-10 text-center">
+                        Novbook adalah website penyediaan Novel yang dapat
+                        kalian baca kapanpun dan dimanapun
                     </p>
                 </div>
                 <div class="mb-6 md:mb-0 flex flex-col  justify-center  ">

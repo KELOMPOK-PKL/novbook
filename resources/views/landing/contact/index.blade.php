@@ -16,14 +16,14 @@
                     <div class="flex-1 px-2">
                         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200 font-semibold">Full
                             Name</label>
-                        <input type="text" placeholder="Ndaru Victor"
+                        <input type="text" placeholder="Your Name"
                             class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-slate-50 border border-gray-300 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
                     <div class="flex-1 px-2 mt-4 md:mt-0">
                         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200 font-semibold">Email
                             address</label>
-                        <input type="email" placeholder="ndaruvictor@gmail.com"
+                        <input type="email" placeholder="youremail@gmail.com"
                             class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-slate-50 border border-gray-300 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 </div>
 
                 <button
-                    class="px-6 py-2 mt-5 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-500 rounded-lg hover:bg-yellow-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                    class="px-6 py-2 mt-5 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
                     SUBMIT
                 </button>
             </form>
