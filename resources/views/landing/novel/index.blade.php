@@ -26,6 +26,7 @@
                             <div class="grid grid-cols-3 gap-1">
                                 <p class="text-neutral-800 dark:text-neutral-300 mt-10">
                                     <i class="fa-sharp fa-solid fa-eye"></i>
+                                    {{ $novel->views_count }}
                                 </p>
                                 <p class="text-neutral-800 dark:text-neutral-300 mt-10 ">
                                     <i class="fa-solid fa-star"></i>
