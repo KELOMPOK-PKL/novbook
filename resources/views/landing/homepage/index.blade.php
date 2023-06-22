@@ -1,6 +1,6 @@
 <x-landing-layout>
     <div class="w-full container">
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center md:p-10">
             <x-content.carousel>
                 <div>
                     @foreach ($post as $p)
@@ -18,10 +18,10 @@
                 @foreach ($novelCategory as $category)
                     <div class="inline-block px-3 ">
                         <div
-                            class="lg:w-44 w-40 h-14 mt-10 max-w-xs overflow-hidden rounded-lg shadow-lg bg-gray-100 hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="flex justify-center items-center mt-4">
+                            class="lg:w-44 text-xs w-full lg:text-sm mt-10 max-w-xs overflow-hidden rounded lg:rounded-lg shadow-md bg-gray-100 hover:shadow-md transition-shadow duration-300 ease-in-out">
+                            <div class="flex justify-center items-center">
                                 <a href="{{ route('landing.category', $category->slug) }}">
-                                    <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400">
+                                    <p class="lg:my-4 w-full my-2 px-2 font-semibold text-gray-700 dark:text-gray-400">
                                         {{ $category->title }}
                                     </p>
                                 </a>
