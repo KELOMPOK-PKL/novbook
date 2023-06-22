@@ -8,11 +8,11 @@
                 <div class="flex flex-wrap items-center">
                     <div class="w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                         <img src="{{ asset('storage/' . $novel->image) }}" alt="..."
-                            class="container rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg w-2/3 h-2/3"  />
+                            class="container w-2/3 h-2/3 rounded-lg my-8"  />
                     </div>
                     <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
                         <div class="px-6 py-12 md:px-12">
-                            <h2 class="mb-20 text-2xl font-bold">
+                            <h2 class="mb-20 text-2xl font-bold text-center md:text-left">
                                 {{ $novel->title }}
                             </h2>
                             <div>
