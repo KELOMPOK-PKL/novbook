@@ -34,7 +34,7 @@
         </div>
         <div class="flex flex-col items-center justify-center w-full mt-8 md:flex-col">
             <hr class="w-full h-1 my-8 bg-gray-400 border-0 rounded dark:bg-gray-700">
-            <div class="absolute px-4 -translate-x-1/2 bg-slate-50 left-1/2 dark:bg-gray-900">
+            <div class="absolute px-4 -translate-x-1/2 bg-slate-50 left-1/2 dark:bg-gray-800">
                 <p class="font-bold text-2xl text-center">Category Pilihan Kami</p>
             </div>
         </div>
