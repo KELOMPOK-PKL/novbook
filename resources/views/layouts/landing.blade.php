@@ -19,7 +19,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tailwindcss.com/3.3.0"></script>
-
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased bg-slate-50">
@@ -62,6 +62,7 @@
     <script>
         AOS.init();
     </script>
+    @livewireScripts
 </body>
 
 </html>

@@ -40,4 +40,9 @@ class Novel extends Model
     {
         return $this->belongsTo(NovelCategory::class, 'novel_category_id');
     }
+
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
 }
