@@ -70,7 +70,7 @@
 
                                     </span>
                                 </div>
-                                <div class="grid grid-cols-3 gap-1 ">
+                                <div class="grid grid-cols-3 gap-1 text-center md:text-left">
                                     <p class="text-neutral-800 dark:text-neutral-300 mt-10">
                                         <i class="fa-sharp fa-solid fa-eye"></i>
                                         {{ $novel->views_count }}
