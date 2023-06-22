@@ -33,7 +33,7 @@
 
         </div>
         <div class="flex flex-col items-center justify-center w-full mt-4 md:flex-col">
-            <hr class="w-full lg:h-1 h-0.5 lg:my-8 my-3 bg-gray-400 border-0 rounded dark:bg-gray-700">
+            <hr class="w-11/12 lg:h-1 h-0.5 lg:my-8 my-3 bg-gray-400 border-0 rounded dark:bg-gray-700">
             <div class="absolute px-4 -translate-x-1/2 bg-slate-50 left-1/2 dark:bg-gray-800">
                 <p class="font-bold lg:text-2xl text-lg text-center">Category Pilihan Kami</p>
             </div>
