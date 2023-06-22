@@ -1,7 +1,7 @@
 <!-- component -->
 <div class="flex flex-col m-auto p-auto">
-    <div class="flex overflow-x-scroll pb-10 hide-scroll-bar lg:mr-44 lg:ml-44">
-        <div class="flex flex-nowrap  ">
+    <div class="flex overflow-x-scroll pb-10 hide-scroll-bar lg:mr-44 lg:ml-44 md:mr-20 md:ml-20">
+        <div class="flex flex-nowrap">
            {{$slot}}
         </div>
     </div>

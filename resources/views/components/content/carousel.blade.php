@@ -3,7 +3,7 @@
 
 <div id="" class="relative w-full " data-carousel="static">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-40 w-full overflow-hidden rounded-lg md:h-96">
         {{$slot}}
     </div>
     <!-- Slider controls -->
