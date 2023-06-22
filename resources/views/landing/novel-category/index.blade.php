@@ -11,7 +11,7 @@
                         <img class="w-full h-52 md:h-72 object-cover"
                             src="{{ asset('storage/' . $n->image) }}" alt="...">
                         <div class="px-6 py-4">
-                            <a class="font-bold text-lg  mb-2">{{ $n->title }}</a>
+                            <a href="{{ route('landing.novels.show', $n->id)}}" class="font-bold text-lg  mb-2">{{ $n->title }}</a>
                             <p class="text-gray-700 text-base">
                                 {{ $n->description }}
                             </p>

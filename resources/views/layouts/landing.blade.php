@@ -11,6 +11,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <!-- Scripts -->
@@ -19,9 +22,9 @@
 
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased bg-slate-50">
 
-    <div class="min-h-screen" style="background-color:  #FAF8F1">
+    <div class="min-h-screen">
         <!-- navbar -->
         <div>
             <x-navbar.navbar class=" rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -58,7 +61,7 @@
 
     <script>
         AOS.init();
-      </script>
+    </script>
 </body>
 
 </html>

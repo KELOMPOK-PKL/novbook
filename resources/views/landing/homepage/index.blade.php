@@ -51,7 +51,7 @@
                                 <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
                                     alt="...">
                                 <div class="px-6 py-4">
-                                    <a class="font-bold text-lg mb-2">{{ $n->title }}</a>
+                                    <a href="{{ route('landing.novels.show', $n->id)}}"  class="font-bold text-lg mb-2">{{ $n->title }}</a>
                                     <p class="text-gray-700 text-base">
                                         {{ $n->description }}
                                     </p>
@@ -69,7 +69,7 @@
         <div>
             <a class="font-semibold text-2xl p-8 ">Artikel</a>
             <div>
-                <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 p-8">
+                <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8">
                     @php
                         $count = 0;
                     @endphp
@@ -79,7 +79,7 @@
                                 <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
                                     alt="...">
                                 <div class="px-6 py-4">
-                                    <a class="font-bold text-lg mb-2">{{ $n->title }}</a>
+                                    <a href="{{ route('landing.novels.show', $n->id)}}"  class="font-bold text-lg mb-2">{{ $n->title }}</a>
                                     <p class="text-gray-700 text-base">
                                         {{ $n->description }}
                                     </p>
@@ -97,7 +97,7 @@
         <div>
             <a class="font-semibold text-2xl p-8 ">Misteri</a>
             <div>
-                <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 p-8">
+                <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8 ">
                     @php
                         $count = 0;
                     @endphp
@@ -107,7 +107,7 @@
                                 <img class="w-full h-52 md:h-72 object-cover" src="{{ asset('storage/' . $n->image) }}"
                                     alt="...">
                                 <div class="px-6 py-4">
-                                    <a class="font-bold text-lg mb-2">{{ $n->title }}</a>
+                                    <a href="{{ route('landing.novels.show', $n->id)}}" class="font-bold text-lg mb-2">{{ $n->title }}</a>
                                     <p class="text-gray-700 text-base">
                                         {{ $n->description }}
                                     </p>
