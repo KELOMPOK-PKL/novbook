@@ -26,6 +26,7 @@ class NovelController extends Controller
      */
     public function show(Novel $novel)
     {
+        $novel->increment('views_count');
         return view('landing.novel.index', compact('novel'));
     }
 }
