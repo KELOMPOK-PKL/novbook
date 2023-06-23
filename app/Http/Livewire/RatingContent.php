@@ -9,10 +9,16 @@ class RatingContent extends Component
 {
     public $novelId;
     public $ratingItems;
+    public $edit_rating_id;
+    public $showFormEdit;
+    public $newComment;
+    public $newRating;
+    public $rating;
+    public $deleteRatingId;
 
     public function mount($novelId)
     {
-        $this->loadCartItems();
+        $this->loadNovelRating();
         $this->novelId = $novelId;
     }
 
@@ -22,39 +28,70 @@ class RatingContent extends Component
 
     public function render()
     {
-        $averageRating = $this->calculateAverageRating();
-        return view('livewire.rating-content', \compact('averageRating'));
+        return view('livewire.rating-content');
     }
 
     public function updateRatingContent()
     {
-        $this->loadCartItems();
+        $this->loadNovelRating();
     }
 
     public function refresh()
     {
-        $this->loadCartItems();
+        $this->loadNovelRating();
     }
 
-    private function loadCartItems()
+    public function setRating($value)
     {
-        $this->ratingItems = Rating::where('novel_id', $this->novelId)->get();
+        $this->newRating = $value;
     }
 
-    public function calculateAverageRating()
+
+    public function selectEdit($id)
     {
-        $totalRatings = count($this->ratingItems);
+        $rating = Rating::find($id);
+        $this->edit_rating_id = $rating->id;
+        $this->rating = $rating->id;
+        $this->showFormEdit = true;
+    }
 
-        if ($totalRatings > 0) {
-            $sumRatings = 0;
+    public function update()
+    {
+        $this->validate([
+            'newRating' => 'nullable|integer|min:1|max:5',
+            'newComment' => 'nullable|string',
+        ]);
 
-            foreach ($this->ratingItems as $ratingItem) {
-                $sumRatings += $ratingItem->rating;
-            }
+        Rating::updateOrCreate(
+            ['user_id' => auth()->user()->id, 'novel_id' => $this->novelId],
+            ['rating' => $this->newRating, 'comment' => $this->newComment]
+        );
 
-            return $sumRatings / $totalRatings;
+        $this->reset(['newRating', 'newComment']);
+        $this->loadNovelRating();
+
+        $this->showFormEdit = false;
+    }
+
+    private function loadNovelRating()
+    {
+        $this->ratingItems = Rating::where('novel_id', $this->novelId)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        $rating = $this->ratingItems->firstWhere('user_id', auth()->user()->id);
+
+        if ($rating) {
+            $this->newRating = $rating->rating;
+            $this->newComment = $rating->comment;
         }
+    }
 
-        return 0; // Mengembalikan 0 jika tidak ada rating
+    public function delete($id)
+    {
+        $this->deleteRatingId = $id;
+        Rating::find($this->deleteRatingId)->delete();
+        $this->deleteRatingId = null;
+        $this->loadNovelRating();
     }
 }
