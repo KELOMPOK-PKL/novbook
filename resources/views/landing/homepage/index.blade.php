@@ -18,7 +18,7 @@
                 @foreach ($novelCategory as $category)
                     <div class="inline-block px-3 ">
                         <div
-                            class="lg:w-44 text-xs w-24 lg:text-sm mt-5 overflow-hidden rounded lg:rounded-lg shadow-md bg-gray-100 hover:shadow-md transition-shadow duration-300 ease-in-out">
+                            class="lg:w-44 text-xs w-24 lg:text-sm mt-5 overflow-hidden rounded lg:rounded-lg shadow-md bg-gray-100 hover:shadow-lg transition-shadow duration-300 ease-in-out">
                             <div class="flex justify-center items-center">
                                 <a href="{{ route('landing.category', $category->slug) }}">
                                     <p class="lg:my-4 w-full my-2 px-2 font-semibold text-gray-700 dark:text-gray-400">
