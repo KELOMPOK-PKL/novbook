@@ -14,8 +14,8 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Novel::class)->constrained()->cascadeOnDelete();
-            $table->integer('rating');
-            $table->text('comment');
+            $table->integer('rating')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }
