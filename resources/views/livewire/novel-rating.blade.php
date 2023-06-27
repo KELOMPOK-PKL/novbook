@@ -67,7 +67,7 @@
                                 {{ $averageRating }}
                             </p>
                             <p class="text-neutral-800 dark:text-neutral-300 mt-10 ">
-                                <i class="fa-solid fa-list"></i>
+                              <a href="{{ route('landing.chapters.index')}}"> <i class="fa-solid fa-list"></i> </a>
                                 {{ $novel->chapters->count() }}
                             </p>
                         </div>

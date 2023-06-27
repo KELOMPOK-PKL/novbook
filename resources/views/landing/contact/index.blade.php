@@ -11,7 +11,8 @@
                     below.</p>
             </div>
 
-            <form data-aos="fade-up" data-aos-duration="2000" class="mt-28">
+            <form data-aos="fade-up" data-aos-duration="2000" class="mt-28" action="{{ route('landing.contact.send') }}" method="POST">
+                @csrf
                 <div class="-mx-2 md:items-center md:flex">
                     <div class="flex-1 px-2">
                         <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200 font-semibold">Full
