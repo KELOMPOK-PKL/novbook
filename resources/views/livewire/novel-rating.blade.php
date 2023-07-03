@@ -43,14 +43,13 @@
                                     @if ($showCommentForm == true)
                                         <div class="my-5 flex flex-col">
                                             <textarea name=""
-                                                class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
+                                                class="p-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                        focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
                                        dark:text-gray-300 dark:focus:ring-offset-dark-eval-1"
                                                 id="" cols="80" rows="5" wire:model="comment"></textarea>
                                             <button
-                                                class="mt-2 w-1/6 text-center  inline-flex items-center px-4 py-2 bg-green-400 dark:bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white dark:text-white uppercase tracking-widest hover:bg-green-700 dark:hover:bg-green-500 focus:bg-green-700 dark:focus:bg-green-500 active:bg-green-700 dark:active:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150"
-                                                wire:click="submit" type="submit"><span
-                                                    class="text-center">Simpan</span></button>
+                                                class="mt-2 w-24 text-center items-center px-4 py-2 bg-green-400 dark:bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white dark:text-white uppercase tracking-widest hover:bg-green-700 dark:hover:bg-green-500 focus:bg-green-700 dark:focus:bg-green-500 active:bg-green-700 dark:active:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150"
+                                                wire:click="submit" type="submit">Simpan</button>
                                         </div>
                                     @endif
                                 </div>

@@ -1,8 +1,14 @@
-<div class="w-full bg-white px-10 py-10  shadow-lg rounded-lg">
-    @forelse ($ratingItems as $rating)
-        <h3 class="font-medium">{{ $rating->user->name }}</h3>
+<div class="flex bg-white px-10 py-7  shadow-lg rounded-lg">
+    
+    <div class="w-full">
+        @forelse ($ratingItems as $rating)
+        <div class="flex">
+            <h3 class="font-medium">{{ $rating->user->name }}</h3>
+            <small class="ml-2 text-sm mt-0.5 text-gray-600">{{ $rating->created_at->format('j M Y, g:i a') }}</small>
+        </div>
+        
         @for ($i = 1; $i <= 5; $i++)
-            <button disabled class="">
+            <button disabled class="mt-2">
                 <svg class=" {{ $rating->rating >= $i ? 'text-yellow-400' : 'text-gray-300' }} cursor-pointer peer peer-hover:text-yellow-400 hover:text-yellow-400 duration-100 "
                     width="23" height="23" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -14,20 +20,15 @@
         @endfor
         <p>{{ $rating->comment }}</p>
         @if ($rating->user->id == auth()->user()->id)
-            @auth
-                <button wire:click="selectEdit({{ $rating->id }})"
-                    class="bg-slate-500 px-5 py-2 rounded-lg text-white">Edit</button>
-                <button wire:click="delete({{ $rating->id }})"
-                    class="bg-red-500 px-5 py-2 rounded-lg text-white">Delete</button>
-            @endauth
+        
         @endif
 
         @if ($rating->user->id == auth()->user()->id && $showFormEdit == true)
-            <div class="flex flex-col">
+            <div class="flex flex-col mt-6">
                 <div class="flex my-4">
                     @for ($i = 1; $i <= 5; $i++)
                         <button wire:click="setRating({{ $i }})">
-                            <svg class=" {{ $i <= $newRating ? 'text-yellow-400' : 'text-gray-300' }} cursor-pointer peer peer-hover:text-yellow-400 hover:text-yellow-400 duration-100 "
+                            <svg class=" {{ $i <= $newRating ? 'text-yellow-400' : 'text-gray-300' }} cursor-pointer peer peer-hover:text-yellow-400 hover:text-yellow-400 duration-100"
                                 width="23" height="23" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,20 +38,41 @@
                         </button>
                     @endfor
                 </div>
-                <form class="w-3/4 ml-8 flex flex-col" wire:submit.prevent="update">
+                <form class="w-3/4 flex flex-col" wire:submit.prevent="update">
                     <textarea
-                        class="py-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
+                        class="p-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
                     focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
                     dark:text-gray-300 dark:focus:ring-offset-dark-eval-1"
                         wire:model.lazy="newComment" id="" cols="80" rows="5"></textarea>
                     <button wire:click="selectEdit({{ $rating->id }})"
-                        class="bg-slate-500 px-5 mt-4 py-2 rounded-lg text-white">Simpan</button>
+                        class="bg-slate-500 px-5 mt-4 py-2 rounded-lg text-white text-center">Simpan</button>
                 </form>
             </div>
         @endif
     @empty
         No Data
     @endforelse
+    </div>
+    <div class="items-end">
+        <button data-dropdown-toggle="dropdown" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 hover:text-gray-800" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+            </svg>
+        </button>
 
-
+        <div id="dropdown" class="items-end z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28 dark:bg-gray-700">
+            @if ($rating)
+                @auth
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        <li>
+                            <a wire:click="selectEdit({{ $rating->id }})" class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                        </li>
+                        <li>
+                            <a wire:click="delete({{ $rating->id }})" class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                        </li>
+                    </ul>
+                @endauth
+            @endif      
+        </div>
+    </div>
 </div>

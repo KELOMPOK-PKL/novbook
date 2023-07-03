@@ -33,13 +33,13 @@
 
         </div>
         <div class="flex flex-col items-center justify-center w-full mt-4 md:flex-col">
-            <hr class="w-11/12 lg:h-1 h-0.5 lg:my-8 my-3 bg-gray-400 border-0 rounded dark:bg-gray-700">
+            <hr class="w-11/12 h-0.5 lg:my-8 my-3 bg-gray-400 border-0 rounded dark:bg-gray-700">
             <div class="absolute px-4 -translate-x-1/2 bg-slate-50 left-1/2 dark:bg-gray-800">
-                <p class="font-bold lg:text-2xl text-lg text-center">Category Pilihan Kami</p>
+                <p class="lg:font-bold font-semibold lg:text-2xl text-lg text-center">Category Pilihan Kami</p>
             </div>
         </div>
         <div class="mt-10">
-            <a class="lg:text-2xl text-lg p-8 font-bold ">Cerita Pendek</a>
+            <a class="lg:text-2xl text-lg p-8 font-semibold">Cerita Pendek</a>
             <div>
                 <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8">
                     @php
@@ -48,14 +48,16 @@
                     @foreach ($novels as $n)
                         @if ($count < 6 && $n->category->title == 'Cerita Pendek')
                             <x-content.card>
-                                <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
-                                    alt="...">
-                                <div class="px-6 py-4">
-                                    <a href="{{ route('landing.novels.show', $n->id)}}"  class="font-bold text-lg mb-2">{{ $n->title }}</a>
-                                    <p class="text-gray-700 text-base">
-                                        {{ $n->description }}
-                                    </p>
-                                </div>
+                                <a href="{{ route('landing.novels.show', $n->id)}}">
+                                    <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
+                                        alt="...">
+                                    <div class="px-6 py-4">
+                                        <p class="font-bold text-lg mb-2">{{ $n->title }}</p>
+                                        <p class="text-gray-700 text-base">
+                                            {{ $n->description }}
+                                        </p>
+                                    </div>
+                                </a>
                             </x-content.card>
                             @php
                                 $count++;
@@ -76,14 +78,16 @@
                     @foreach ($novels as $n)
                         @if ($count < 5 && $n->category->title == 'Artikel')
                             <x-content.card>
-                                <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
-                                    alt="...">
-                                <div class="px-6 py-4">
-                                    <a href="{{ route('landing.novels.show', $n->id)}}"  class="font-bold text-lg mb-2">{{ $n->title }}</a>
-                                    <p class="text-gray-700 text-base">
-                                        {{ $n->description }}
-                                    </p>
-                                </div>
+                                <a href="{{ route('landing.novels.show', $n->id)}}">
+                                    <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
+                                        alt="...">
+                                    <div class="px-6 py-4">
+                                        <p class="font-bold text-lg mb-2">{{ $n->title }}</p>
+                                        <p class="text-gray-700 text-base">
+                                            {{ $n->description }}
+                                        </p>
+                                    </div>
+                                </a>
                             </x-content.card>
                             @php
                                 $count++;
@@ -104,14 +108,16 @@
                     @foreach ($novels as $n)
                         @if ($count < 5 && $n->category->title == 'Misteri')
                             <x-content.card>
-                                <img class="w-full h-52 md:h-72 object-cover" src="{{ asset('storage/' . $n->image) }}"
-                                    alt="...">
-                                <div class="px-6 py-4">
-                                    <a href="{{ route('landing.novels.show', $n->id)}}" class="font-bold text-lg mb-2">{{ $n->title }}</a>
-                                    <p class="text-gray-700 text-base">
-                                        {{ $n->description }}
-                                    </p>
-                                </div>
+                                <a href="{{ route('landing.novels.show', $n->id)}}">
+                                    <img class="w-full h-52 md:h-72 object-cover" src="{{ asset('storage/' . $n->image) }}"
+                                        alt="...">
+                                    <div class="px-6 py-4">
+                                        <p class="font-bold text-lg mb-2">{{ $n->title }}</p>
+                                        <p class="text-gray-700 text-base">
+                                            {{ $n->description }}
+                                        </p>
+                                    </div>
+                                </a>
                             </x-content.card>
                             @php
                                 $count++;
