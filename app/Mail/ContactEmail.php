@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -20,7 +21,7 @@ class ContactEmail extends Mailable
 
     public function build()
     {
-        return $this->subject('Pesan dari formulir kontak')
-                    ->view('landing.contact.index');
+        return $this->subject('Pesan dari user')
+                    ->view('landing.contact.mailtemplate');
     }
 }

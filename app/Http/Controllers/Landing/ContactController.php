@@ -28,7 +28,7 @@ class ContactController extends Controller
         $data = [
             'name' => $name,
             'email' => $email,
-            'message' => $message
+            'message' => $message,
         ];
 
         Mail::to('novbook.ebook@gmail.com')->send(new ContactEmail($data));
