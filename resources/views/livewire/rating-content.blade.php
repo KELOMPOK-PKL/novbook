@@ -1,11 +1,47 @@
-<div class="flex bg-white px-10 py-7  shadow-lg rounded-lg">
+<div class="bg-white px-10 py-7  shadow-lg rounded-lg">
 
     <div class="w-full">
         @forelse ($ratingItems as $rating)
-            <div class="flex">
-                <h3 class="font-medium">{{ $rating->user->name }}</h3>
-                <small
-                    class="ml-2 text-sm mt-0.5 text-gray-600">{{ $rating->created_at->format('j M Y, g:i a') }}</small>
+            <div class="w-full flex justify-between">
+                <div class="flex">
+                    <h3 class="font-medium">{{ $rating->user->name }}</h3>
+                    <small
+                        class="ml-2 text-sm mt-0.5 text-gray-600">{{ $rating->created_at->format('j M Y, g:i a') }}</small>
+                </div>
+
+                <div class="ml-96">
+                    @auth
+                        @if ($rating->user->id == auth()->user()->id)
+                            <div class="items-end">
+                                <button data-dropdown-toggle="dropdown" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 hover:text-gray-800"
+                                        viewBox="0 0 20 20" fill="currentColor">
+                                        <path
+                                            d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                    </svg>
+                                </button>
+                                @if ($rating)
+                                    <div id="dropdown"
+                                        class="items-end z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28 dark:bg-gray-700">
+
+                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                            aria-labelledby="dropdownDefaultButton">
+                                            <li>
+                                                <a wire:click="selectEdit({{ $rating->id }})"
+                                                    class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a wire:click="delete({{ $rating->id }})"
+                                                    class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
+                    @endauth
+                </div>
             </div>
 
             @for ($i = 1; $i <= 5; $i++)
@@ -47,41 +83,7 @@
                     </form>
                 </div>
             @endif
-            @auth
-                @if ($rating->user->id == auth()->user()->id)
-                    <div class="items-end">
-                        <button data-dropdown-toggle="dropdown" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 hover:text-gray-800"
-                                viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                            </svg>
-                        </button>
-                        @if ($rating)
-                            <div id="dropdown"
-                                class="items-end z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28 dark:bg-gray-700">
-
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                    aria-labelledby="dropdownDefaultButton">
-                                    <li>
-                                        <a wire:click="selectEdit({{ $rating->id }})"
-                                            class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                                    </li>
-                                    <li>
-                                        <a wire:click="delete({{ $rating->id }})"
-                                            class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        @endif
-                @endif
-            @endauth
     </div>
 @empty
     @endforelse
-</div>
-{{--  --}}
-
-
 </div>
