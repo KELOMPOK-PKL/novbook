@@ -12,12 +12,7 @@
                     </h2>
                     <div>
                         <p class=" text-neutral-500 dark:text-neutral-300">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Earum maxime voluptas ipsam aliquam itaque cupiditate
-                            provident architecto expedita harum culpa odit, inventore rem
-                            molestias laborum repudiandae corporis pariatur quo eius iste!
-                            Quaerat, assumenda voluptates! Molestias, recusandae? Maxime
-                            fuga omnis ducimus.
+                          {{ $novel->description}}
                         </p>
                         <p class=" mt-5 font-semibold">Beri Rating</p>
                         <div class="flex justify-start items-start mt-2 ">

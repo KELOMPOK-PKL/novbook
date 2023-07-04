@@ -37,10 +37,10 @@ class ChapterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Chapter $chapters)
+    public function show(Chapter $chapter)
     {
 
-        return view('landing.chapter.index', compact('chapters'));
+        return view('landing.chapter.show', compact('chapter'));
     }
 
     /**
