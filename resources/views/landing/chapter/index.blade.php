@@ -3,9 +3,11 @@
         <div class="mx-10">
             <ul class="w-96">
                 @foreach ($chapters as $chapter)
+                <a href="{{route('landing.chapters.show',$chapter->id)}}}">
                 <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
-                    <a href="{{route('dashboard.chapter.index')}}">{{$chapter->title}}</a>
+                   <p>{{$chapter->title}}</p>
                 </li>
+                </a>
                 @endforeach
             </ul>
         </div>

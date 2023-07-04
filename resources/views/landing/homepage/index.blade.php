@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="mt-10">
-            <a class="lg:text-2xl text-lg p-8 font-semibold">Cerita Pendek</a>
+            <a class="font-semibold text-2xl p-8 ">Cerita Pendek</a>
             <div>
                 <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8">
                     @php
