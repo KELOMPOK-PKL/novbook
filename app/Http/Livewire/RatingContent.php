@@ -79,11 +79,15 @@ class RatingContent extends Component
             ->orderBy('created_at', 'DESC')
             ->get();
 
-        $rating = $this->ratingItems->firstWhere('user_id', auth()->user()->id);
+        if (auth()->check()) {
+            $rating = $this->ratingItems->firstWhere('user_id', auth()->user()->id);
 
-        if ($rating) {
-            $this->newRating = $rating->rating;
-            $this->newComment = $rating->comment;
+            if ($rating) {
+                $this->newRating = $rating->rating;
+                $this->newComment = $rating->comment;
+            }
+        } else {
+            $this->ratingItems = Rating::all();
         }
     }
 
