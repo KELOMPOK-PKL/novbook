@@ -11,7 +11,7 @@
         @endif
 
         <div class="flex items-center justify-between mt-4">
-            <form method="POST" action="{{ route('verification.send') }}">
+            <form method="POST" action="{{ route('landing.verification.send') }}">
                 @csrf
 
                 <div>
@@ -21,7 +21,7 @@
                 </div>
             </form>
 
-            <form method="POST" action="{{ route('logout') }}">
+            <form method="POST" action="{{ route('landing.logout') }}">
                 @csrf
 
                 <button type="submit" class="text-sm text-blue-500 underline hover:text-blue-700">

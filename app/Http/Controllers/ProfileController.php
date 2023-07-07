@@ -39,6 +39,29 @@ class ProfileController extends Controller
         return Redirect::route('dashboard.profile.edit')->with('status', 'profile-updated');
     }
 
+    public function userEdit(Request $request): View
+    {
+        return view('landing.profile.edit', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    /**
+     * Update the admin user's profile information.
+     */
+    public function userUpdate(ProfileUpdateRequest $request): RedirectResponse
+    {
+        $request->user()->fill($request->validated());
+
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
+
+        $request->user()->save();
+
+        return Redirect::route('landing.profile.edit')->with('status', 'profile-updated');
+    }
+
     /**
      * Delete the user's account.
      */

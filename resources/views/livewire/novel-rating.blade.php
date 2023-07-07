@@ -1,5 +1,5 @@
 <section class="">
-    <div class="h-3/4 rounded-lg bg-white shadow-lg dark:bg-neutral-700">
+    <div class="h-3/4 rounded-lg bg-white shadow-lg">
         <div class="flex flex-wrap items-center">
             <div class="w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                 <img src="{{ asset('storage/' . $novel->image) }}" alt="..."
@@ -7,14 +7,14 @@
             </div>
             <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
                 <div class="px-6 py-12 md:px-12">
-                    <h2 class="mb-20 text-2xl font-bold text-center md:text-left">
+                    <h2 class="mb-20 text-2xl font-bold text-center md:text-left text-black">
                         {{ $novel->title }}
                     </h2>
                     <div>
-                        <p class=" text-neutral-500 dark:text-neutral-300">
-                          {{ $novel->description}}
+                        <p class=" text-gray-800">
+                            {{ $novel->description }}
                         </p>
-                        <p class=" mt-5 font-semibold">Beri Rating</p>
+                        <p class=" mt-5 font-semibold text-black">Beri Rating</p>
                         <div class="flex justify-start items-start mt-2 ">
                             <span class="flex flex-row-reverse">
                                 {{-- <h4 class="font-bold">Rating</h4> --}}
@@ -39,11 +39,10 @@
                                         <div class="my-5 flex flex-col">
                                             <textarea name=""
                                                 class="p-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
-                                       focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                                       dark:text-gray-300 dark:focus:ring-offset-dark-eval-1"
+                                       focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white text-black"
                                                 id="" cols="80" rows="5" wire:model="comment"></textarea>
                                             <button
-                                                class="mt-2 w-24 text-center items-center px-4 py-2 bg-green-400 dark:bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white dark:text-white uppercase tracking-widest hover:bg-green-700 dark:hover:bg-green-500 focus:bg-green-700 dark:focus:bg-green-500 active:bg-green-700 dark:active:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150"
+                                                class="mt-2 w-24 text-center items-center px-4 py-2 bg-green-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150"
                                                 wire:click="submit" type="submit">Simpan</button>
                                         </div>
                                     @endif
@@ -52,16 +51,16 @@
 
                         </div>
                         <div class="grid grid-cols-3 gap-1 text-center md:text-left">
-                            <p class="text-neutral-800 dark:text-neutral-300 mt-10">
+                            <p class="text-neutral-800 mt-10">
                                 <i class="fa-sharp fa-solid fa-eye"></i>
                                 {{ $novel->views_count }}
                             </p>
-                            <p class="text-neutral-800 dark:text-neutral-300 mt-10 ">
+                            <p class="text-neutral-800 mt-10 ">
                                 <i class="fa-solid fa-star"></i>
                                 {{ $averageRating }}
                             </p>
-                            <p class="text-neutral-800 dark:text-neutral-300 mt-10 ">
-                              <a href="{{ route('landing.chapters.index')}}"> <i class="fa-solid fa-list"></i> </a>
+                            <p class="text-neutral-800 mt-10 ">
+                                <a href="{{ route('landing.chapters.index') }}"> <i class="fa-solid fa-list"></i> </a>
                                 {{ $novel->chapters->count() }}
                             </p>
                         </div>

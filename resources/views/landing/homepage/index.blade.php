@@ -13,7 +13,7 @@
                 </div>
             </x-content.carousel>
         </div>
-        <div class="lg:mt-5 mt-3">
+        <div class="lg:mt-5 mt-3 ">
             <x-content.horizontal>
                 @foreach ($novelCategory as $category)
                     <div class="inline-block px-3 ">
@@ -21,7 +21,7 @@
                             class="lg:w-44 text-xs w-24 lg:text-sm mt-5 overflow-hidden rounded lg:rounded-lg shadow-md bg-gray-100 hover:shadow-lg transition-shadow duration-300 ease-in-out">
                             <div class="flex justify-center items-center">
                                 <a href="{{ route('landing.category', $category->slug) }}">
-                                    <p class="lg:my-4 w-full my-2 px-2 font-semibold text-gray-700 dark:text-gray-400">
+                                    <p class="lg:my-4 w-full my-2 px-2 font-semibold text-black ">
                                         {{ $category->title }}
                                     </p>
                                 </a>
@@ -33,13 +33,13 @@
 
         </div>
         <div class="flex flex-col items-center justify-center w-full mt-4 md:flex-col">
-            <hr class="w-11/12 h-0.5 lg:my-8 my-3 bg-gray-400 border-0 rounded dark:bg-gray-700">
-            <div class="absolute px-4 -translate-x-1/2 bg-slate-50 left-1/2 dark:bg-gray-800">
-                <p class="lg:font-bold font-semibold lg:text-2xl text-lg text-center">Category Pilihan Kami</p>
+            <hr class="w-11/12 h-0.5 lg:my-8 my-3 bg-black border-0 rounded ">
+            <div class="absolute px-4 -translate-x-1/2 bg-slate-50 left-1/2 ">
+                <p class="lg:font-bold font-semibold lg:text-2xl text-lg text-center text-black">Category Pilihan Kami</p>
             </div>
         </div>
         <div class="mt-10">
-            <a class="font-semibold text-2xl p-8">Cerita Pendek</a>
+            <a class="font-semibold text-2xl p-8 text-black">Cerita Pendek</a>
             <div>
                 <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8">
                     @php
@@ -52,7 +52,7 @@
                                     <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
                                         alt="...">
                                     <div class="px-6 py-4">
-                                        <p class="font-bold text-lg mb-2">{{ $n->title }}</p>
+                                        <p class="font-bold text-lg mb-2 text-black">{{ $n->title }}</p>
                                         <p class="text-gray-700 text-base">
                                             {{ $n->description }}
                                         </p>
@@ -69,7 +69,7 @@
         </div>
         <br />
         <div>
-            <a class="font-semibold text-2xl p-8 ">Artikel</a>
+            <a class="font-semibold text-2xl p-8 text-black">Artikel</a>
             <div>
                 <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8">
                     @php
@@ -82,7 +82,7 @@
                                     <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
                                         alt="...">
                                     <div class="px-6 py-4">
-                                        <p class="font-bold text-lg mb-2">{{ $n->title }}</p>
+                                        <p class="font-bold text-lg mb-2 text-black">{{ $n->title }}</p>
                                         <p class="text-gray-700 text-base">
                                             {{ $n->description }}
                                         </p>
@@ -99,7 +99,7 @@
         </div>
         <br />
         <div>
-            <a class="font-semibold text-2xl p-8 ">Misteri</a>
+            <a class="font-semibold text-2xl p-8 text-black">Misteri</a>
             <div>
                 <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8 ">
                     @php
@@ -112,7 +112,7 @@
                                     <img class="w-full h-52 md:h-72 object-cover" src="{{ asset('storage/' . $n->image) }}"
                                         alt="...">
                                     <div class="px-6 py-4">
-                                        <p class="font-bold text-lg mb-2">{{ $n->title }}</p>
+                                        <p class="font-bold text-lg mb-2 text-black">{{ $n->title }}</p>
                                         <p class="text-gray-700 text-base">
                                             {{ $n->description }}
                                         </p>

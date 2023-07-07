@@ -1,6 +1,6 @@
 <x-landing-layout>
         <div class="w-full container">
-        <div  class="font-bold text-3xl lg:p-5 ">
+        <div  class="font-bold text-3xl lg:p-5 text-black">
             {{ $novelCategory->title }}
             ({{ $novelCategory->novel->count() }})
         </div>
@@ -11,8 +11,8 @@
                         <img class="w-full h-52 md:h-72 object-cover"
                             src="{{ asset('storage/' . $n->image) }}" alt="...">
                         <div class="px-6 py-4">
-                            <a href="{{ route('landing.novels.show', $n->id)}}" class="font-bold text-lg  mb-2">{{ $n->title }}</a>
-                            <p class="text-gray-700 text-base">
+                            <a href="{{ route('landing.novels.show', $n->id)}}" class="font-bold text-lg mb-2 text-black">{{ $n->title }}</a>
+                            <p class="text-gray-700 text-base ">
                                 {{ $n->description }}
                             </p>
                         </div>

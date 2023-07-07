@@ -1,12 +1,12 @@
 @forelse ($ratingItems as $rating)
-    <div class="bg-white px-10 py-7 shadow-lg rounded-lg mb-5 " >
+    <div class="bg-white px-10 py-7 shadow-lg rounded-lg mb-5 ">
 
         <div class="w-full">
             <div class="w-full flex justify-between">
                 <div class="flex">
-                    <h3 class="font-medium">{{ $rating->user->name }}</h3>
+                    <h3 class="font-medium text-black">{{ $rating->user->name }}</h3>
                     <small
-                        class="ml-2 text-sm mt-0.5 text-gray-600">{{ $rating->created_at->format('j M Y, g:i a') }}</small>
+                        class="ml-2 text-sm mt-0.5 text-black">{{ $rating->created_at->format('j M Y, g:i a') }}</small>
                 </div>
 
                 <div class="ml-96">
@@ -23,17 +23,16 @@
                                 </button>
                                 @if ($rating)
                                     <div id="dropdown"
-                                        class="items-stretch z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28 dark:bg-gray-700">
+                                        class="items-stretch z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28 ">
 
-                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                            aria-labelledby="dropdownDefaultButton">
+                                        <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
                                             <li>
                                                 <a wire:click="selectEdit({{ $rating->id }})"
-                                                    class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                                    class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Edit</a>
                                             </li>
                                             <li>
                                                 <a wire:click="delete({{ $rating->id }})"
-                                                    class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                                                    class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Delete</a>
                                             </li>
                                         </ul>
 
@@ -56,7 +55,7 @@
                     </svg>
                 </button>
             @endfor
-            <p>{{ $rating->comment }}</p>
+            <p class="text-black">{{ $rating->comment }}</p>
 
             @auth
                 @if ($showFormEdit == true && $rating->user->id == auth()->user()->id)
@@ -77,11 +76,10 @@
                         <form class="w-3/4 flex flex-col" wire:submit.prevent="update">
                             <textarea
                                 class="p-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
-                    focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-600 dark:bg-dark-eval-1
-                    dark:text-gray-300 dark:focus:ring-offset-dark-eval-1"
+                    focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white text-black"
                                 wire:model.lazy="newComment" id="" cols="80" rows="5"></textarea>
                             <button wire:click="selectEdit({{ $rating->id }})"
-                                class="bg-slate-500 px-5 mt-4 py-2 rounded-lg text-white text-center">Simpan</button>
+                                class="bg-green-400 px-5 mt-4 py-2 rounded-lg text-white text-center">Simpan</button>
                         </form>
                     </div>
                 @endif
