@@ -53,10 +53,11 @@
                         </span>
                     </label>
 
-
-                    <a class="text-sm text-blue-500 hover:underline" href="{{ route('landing.password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+                    @if (Route::has('password.request'))
+                        <a class="text-sm text-blue-500 hover:underline" href="{{ route('landing.password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
                 </div>
 
                 <div>
