@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Landing;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
@@ -41,7 +40,11 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
-
+        if ($request->hasFile('avatar')) {
+            $this->oldImage = auth()->user()->avatar;
+            $this->newImage = $request->file('avatar')->store('user/avatar', 'public');
+            $request['avatar'] = $this->newImage;
+        }
 
         $request->user()->save();
 
@@ -64,16 +67,6 @@ class ProfileController extends Controller
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
-        }
-
-        if ($request->hasFile('avatar')) {
-            $oldAvatar = $request->user()->avatar;
-            if ($oldAvatar) {
-                Storage::disk('public')->delete($oldAvatar);
-            }
-
-            $avatar = $request->file('avatar')->store('avatar', 'public');
-            $request->user()->avatar = $avatar;
         }
 
         $request->user()->save();

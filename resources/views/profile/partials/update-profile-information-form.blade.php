@@ -13,7 +13,8 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('dashboard.profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('landing.profile.update') }}" enctype="multipart/form-data"
+        class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
@@ -24,6 +25,18 @@
                 autofocus autocomplete="name" />
 
             <x-form.error :messages="$errors->get('name')" />
+        </div>
+
+        <div class="space-y-2">
+            <x-form.label for="avatar" :value="__('Avatar')" />
+
+            <img @if (!empty(auth()->user()->avatar)) src="{{ asset('storage/' . auth()->user()->avatar) }}"
+            @else
+            src="{{ asset('https://sauvegardewzc.be/wp-content/uploads/2019/03/default-avatar-768x768.png') }}" @endif
+                alt="Avatar" class="w-[128px] h-[128px] rounded-full" alt="" srcset="">
+            <x-form.file-input id="avatar" name="avatar" type="file" autocomplete="name" />
+
+            <x-form.error :messages="$errors->get('avatar')" />
         </div>
 
         <div class="space-y-2">
