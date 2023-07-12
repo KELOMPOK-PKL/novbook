@@ -33,13 +33,10 @@
             width: 100%;
             height: 100%;
             overflow: auto;
+            background: #ffffff;
+            text-align: center;
         }
 
-        #my_canvas {
-            background: #333;
-            text-align: center;
-            border: solid 3px;
-        }
     </style>
 </head>
 
