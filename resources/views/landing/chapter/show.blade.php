@@ -1,32 +1,41 @@
 <x-landing-layout>
     <div class="m-8 border-gray-300 rounded-lg bg-white shadow-lg">
         <div class="p-5">
-            <x-button variant="ligth" href="{{ route('landing.chapters.index', $chapter->novel->id) }}" class="m-5">
-                back
-            </x-button>
-        </div>
-        <div>
             <canvas id="my_canvas"></canvas>
         </div>
-
-
-
-        {{-- <div class="p-8">
-            <iframe src="{{ asset('storage/'. $chapter->pdf)}}#toolbar=0" class="w-full h-screen"></iframe>
-        </div> --}}
+        <div id="navigation_controls" class="flex w-full justify-between">
+            <x-button id="go_previous">Previous</x-button>
+            <x-button id="go_next">Next</x-button>
+        </div>
+        <div>
+            <x-button>
+                <a href="{{ route('landing.chapters.index', $chapter->novel_id)}}">Back</a>
+            </x-button>
+        </div>
     </div>
 
     @push('js')
         <script>
             var pdfUrl = "{{ asset('storage/' . $chapter->pdf) }}";
+            var myState = {
+                pdf: null,
+                currentPage: 1
+            };
 
             pdfjsLib.getDocument(pdfUrl).promise.then(function(doc) {
                 console.log("Dokumen berisi " + doc.numPages + " halaman");
+                myState.pdf = doc;
 
-                // Dapatkan halaman pertama
-                doc.getPage(1).then(function(page) {
-                    var canvas = document.getElementById('my_canvas');
-                    var context = canvas.getContext('2d');
+                render();
+            });
+
+            function render() {
+                var canvas = document.getElementById('my_canvas');
+                var context = canvas.getContext('2d');
+                var currentPage = myState.currentPage;
+                var pdf = myState.pdf;
+
+                pdf.getPage(currentPage).then(function(page) {
                     var viewport = page.getViewport({
                         scale: 3
                     });
@@ -40,6 +49,22 @@
                         viewport: viewport
                     });
                 });
+            }
+
+            document.getElementById('go_previous').addEventListener('click', (e) => {
+                if (myState.pdf == null || myState.currentPage === 1) {
+                    return;
+                }
+                myState.currentPage -= 1;
+                render();
+            });
+
+            document.getElementById('go_next').addEventListener('click', (e) => {
+                if (myState.pdf == null || myState.currentPage >= myState.pdf.numPages) {
+                    return;
+                }
+                myState.currentPage += 1;
+                render();
             });
         </script>
     @endpush
