@@ -44,30 +44,31 @@
                 </div>
             </div>
             <x-navbar.link href="{{ route('landing.contact.index') }}">Contact</x-navbar.link>
-            <div class="ml-5">
-                <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
-                    type="button" class="rounded-full border border-black">
-                    <img @if (!empty(auth()->user()->avatar)) src="{{ asset('storage/' . auth()->user()->avatar) }}"
-                    @else
-                    src="{{ asset('https://sauvegardewzc.be/wp-content/uploads/2019/03/default-avatar-768x768.png') }}" @endif
-                        alt="Avatar" class="w-[40px] h-[40px] rounded-full" alt="" srcset="">
-                </button>
-                <div id="dropdownHover"
-                    class="items-stretch hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28">
-                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton1">
-                        <li>
-                            <a href="{{ route('landing.profile.edit') }}"
-                                class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Profile</a>
-                        </li>
-                        <li>
-                            <form method="POST" action="{{ route('landing.logout') }}">
-                                @csrf
-                                <button type="submit"
-                                    class="block w-24 text-left px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+
+        </div>
+        <div class="ml-5">
+            <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
+                type="button" class="rounded-full border border-black">
+                <img @if (!empty(auth()->user()->avatar)) src="{{ asset('storage/' . auth()->user()->avatar) }}"
+                @else
+                src="{{ asset('https://sauvegardewzc.be/wp-content/uploads/2019/03/default-avatar-768x768.png') }}" @endif
+                    alt="Avatar" class="w-[40px] h-[40px] rounded-full" alt="" srcset="">
+            </button>
+            <div id="dropdownHover"
+                class="items-stretch hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28">
+                <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton1">
+                    <li>
+                        <a href="{{ route('landing.profile.edit') }}"
+                            class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Profile</a>
+                    </li>
+                    <li>
+                        <form method="POST" action="{{ route('landing.logout') }}">
+                            @csrf
+                            <button type="submit"
+                                class="block w-24 text-left px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Logout</button>
+                        </form>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
