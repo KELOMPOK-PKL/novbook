@@ -9,9 +9,9 @@
     <link rel="icon"  type="svg" href="{{ asset('image/logo_novbook.png')}}">
 
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -24,14 +24,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="font-poppins antialiase" >
     <div
         x-data="mainState"
         class="font-sans antialiased"
         :class="{dark: isDarkMode}"
         x-cloak
     >
-        <div class="flex flex-col min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200">
+        <div class="flex flex-col min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200"  style="background-image: url('{{ asset('image/bg_login.jpg') }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
             {{ $slot }}
 
 
@@ -39,7 +39,7 @@
             <x-footer />
         </div>
 
-        <div class="fixed top-10 right-10">
+        {{-- <div class="fixed top-10 right-10">
             <x-button
                 type="button"
                 icon-only
@@ -59,7 +59,7 @@
                     class="w-6 h-6"
                 />
             </x-button>
-        </div>
+        </div> --}}
     </div>
 </body>
 </html>

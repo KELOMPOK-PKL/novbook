@@ -15,15 +15,32 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+   <!----fonts---->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tailwindcss.com/3.3.0"></script>
     {{-- @style('css') --}}
     @stack('css')
+
+    <style>
+        #my_canvas {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        #my_canvas {
+          background: #333;
+          text-align: center;
+          border: solid 3px;
+        }
+    </style>
 </head>
 
-<body class="font-sans antialiased bg-slate-50">
+<body class="font-poppins antialiased bg-slate-50">
 
     <div class="min-h-screen">
         <!-- navbar -->
@@ -59,7 +76,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
 
+    <script>
+        // Dapatkan URL file PDF dari penyimpanan menggunakan sintaks Laravel
+        var pdfUrl = "{{ Storage::url($chapters->pluck('pdf')) }}";
+        console.log(pdfUrl);
+
+        // Dapatkan dokumen PDF
+        pdfjsLib.getDocument(pdfUrl).promise.then(function(doc) {
+            console.log("Dokumen berisi " + doc.numPages + " halaman");
+
+            // Dapatkan halaman pertama
+            doc.getPage(1).then(function(page) {
+                var canvas = document.getElementById('my_canvas');
+                var context = canvas.getContext('2d');
+                var viewport = page.getViewport({ scale: 3 });
+
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                // Render halaman ke dalam canvas
+                page.render({
+                    canvasContext: context,
+                    viewport: viewport
+                });
+            });
+        });
+    </script>
     <script>
         AOS.init();
     </script>

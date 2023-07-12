@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Chapter;
 use App\Models\NovelCategory;
 use App\Services\NovelService;
 use Illuminate\View\Component;
@@ -22,6 +23,9 @@ class LandingLayout extends Component
     {
         $novelCategory = NovelCategory::all();
         $novels = $this->novelService->index()->get();
-        return view('layouts.landing', compact('novelCategory','novels'));
+        $chapters = Chapter::all();
+    //   dd($chapters);
+
+        return view('layouts.landing', compact('novelCategory', 'novels', 'chapters'));
     }
 }

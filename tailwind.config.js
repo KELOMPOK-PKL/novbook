@@ -14,6 +14,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Inter", ...defaultTheme.fontFamily.sans],
+                poppins: "'Poppins','sans-serif'"
             },
             container:{
                 center: true,

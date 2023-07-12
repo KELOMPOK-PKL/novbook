@@ -45,8 +45,8 @@
             </div>
             <x-navbar.link href="{{ route('landing.contact.index') }}">Contact</x-navbar.link>
             <div class="ml-5">
-                <button data-dropdown-toggle="dropdown" type="button" class="rounded-full border border-black">
-                    <svg class="h-8 lg:h-8 p-2  text-gray-900" aria-hidden="true" focusable="false" data-prefix="far"
+                <button  id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" type="button" class="rounded-full border border-black">
+                    <svg class="h-8 lg:h-8 p-2 text-gray-900" aria-hidden="true" focusable="false" data-prefix="far"
                         data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                         class="svg-inline--fa fa-user fa-w-14 fa-9x">
                         <path fill="currentColor"
@@ -54,9 +54,8 @@
                         </path>
                     </svg>
                 </button>
-                <div id="dropdown"
-                    class="items-stretch hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28 ">
-                    <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
+                <div  id="dropdownHover" class="items-stretch hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28">
+                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton1">
                         <li>
                             <a href="{{ route('landing.profile.edit') }}"
                                 class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Profile</a>
