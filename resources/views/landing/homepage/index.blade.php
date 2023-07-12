@@ -53,7 +53,7 @@
                                         alt="...">
                                     <div class="px-6 py-4">
                                         <p class="font-bold text-lg mb-2 text-black">{{ $n->title }}</p>
-                                        <p class="text-gray-700 text-base">
+                                        <p class="text-gray-700 text-base line-clamp-2">
                                             {{ $n->description }}
                                         </p>
                                         <p class="text-sm text-amber-400">{{ $n->writer }}</p>
@@ -78,7 +78,7 @@
                             @endphp
                         @endif
                     @endforeach
-                </div> 
+                </div>
             </div>
         </div>
         <br />
@@ -116,7 +116,7 @@
                                                 {{ $n->chapters->count() }}
                                             </p>
                                         </div>
-                                        
+
                                     </div>
                                 </a>
                             </div>
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-        
+
         <br />
         <div>
             <div class="container">
@@ -146,7 +146,7 @@
                                             alt="...">
                                         <div class="px-6 py-4">
                                             <p class="font-bold text-lg mb-2 text-black">{{ $n->title }}</p>
-                                            <p class="text-gray-700 text-base">
+                                            <p class="text-gray-700 text-base line-clamp-2">
                                                 {{ $n->description }}
                                             </p>
                                             <p class="text-sm text-amber-500">{{ $n->writer }}</p>
@@ -175,6 +175,6 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </x-landing-layout>
