@@ -1,7 +1,7 @@
 
 
 
-<div id="" class="relative w-full " data-carousel="static">
+<div id="" class="relative w-full container " data-carousel="static">
     <!-- Carousel wrapper -->
     <div class="relative h-40 w-full overflow-hidden rounded-lg md:h-96">
         {{$slot}}
