@@ -80,7 +80,7 @@
 
     <script>
         // Dapatkan URL file PDF dari penyimpanan menggunakan sintaks Laravel
-        var pdfUrl = "{{ Storage::url($chapters->pluck('pdf')) }}";
+        var pdfUrl = "{{ Storage::url($chapters->first()->pdf) }}";
         console.log(pdfUrl);
 
         // Dapatkan dokumen PDF
