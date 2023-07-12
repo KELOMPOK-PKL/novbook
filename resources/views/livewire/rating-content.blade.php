@@ -1,6 +1,6 @@
-@forelse ($ratingItems as $rating)
-    <div class="bg-white px-10 py-7 shadow-lg rounded-lg mb-5 ">
 
+    <div class="bg-white px-10 py-7 shadow-lg rounded-lg mb-5 ">
+        @forelse ($ratingItems as $rating)
         <div class="w-full">
             <div class="w-full flex justify-between">
                 <div class="flex">
@@ -85,6 +85,7 @@
                 @endif
             @endauth
         </div>
-    </div>
-@empty
+        @empty
 @endforelse
+    </div>
+

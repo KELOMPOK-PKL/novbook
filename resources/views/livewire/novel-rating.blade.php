@@ -53,7 +53,10 @@
                         <div class="grid grid-cols-3 gap-1 text-center md:text-left">
                             <p class="text-neutral-800 mt-10">
                                 <i class="fa-sharp fa-solid fa-eye"></i>
-                                {{ $novel->views_count }}
+                                {{ $n->views_count > 1000 ? number_format($n->views_count / 1000, 1, ',', '.') : $n->views_count }}
+                                @if ($n->views_count > 1000)
+                                    k
+                                @endif
                             </p>
                             <p class="text-neutral-800 mt-10 ">
                                 <i class="fa-solid fa-star"></i>
