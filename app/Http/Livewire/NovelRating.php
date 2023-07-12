@@ -25,8 +25,7 @@ class NovelRating extends Component
     public function render()
     {
         $averageRating = $this->calculateAverageRating();
-        $novel = Novel::findOrFail($this->novelId);
-
+        $novel = Novel::with('chapters')->findOrFail($this->novelId);
         return view('livewire.novel-rating', [
             'averageRating' => $averageRating,
             'novel' => $novel,

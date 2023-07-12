@@ -11,20 +11,13 @@ class ChapterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $chapters = Chapter::all();
-
-        return view('landing.chapter.index', compact('chapters'));
-    }
-
 
     /**
      * Display the specified resource.
      */
     public function show(Chapter $chapter)
     {
-
+        // \dd($chapter);
         return view('landing.chapter.show', compact('chapter'));
     }
 }
