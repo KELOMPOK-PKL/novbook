@@ -70,7 +70,7 @@
                         </div>
                         <div class="mt-8">
                             <x-button class="bg-yellow-500 hover:bg-yellow-400">
-                                <a href="{{route('landing.chapters.show', $novel->id)}}">Mulai Membaca</a>
+                                <a href="{{ route('landing.chapters.index', $novel->id) }}">Mulai Membaca</a>
                             </x-button>
                         </div>
                     </div>

@@ -6,18 +6,27 @@
             </div>
             <div class="flex flex-wrap w-full justify-between lg:pb-16 lg:px-24 sm:pb-12 sm:px-20 pb-6 px-6">
                 <div>
-                    <button class="lg:m-3 m-1 bg-yellow-500 hover:bg-yellow-400 text-white lg:text-base sm:text-base text-xs sm:px-4 sm:py-2.5 px-2.5 py-1.5 sm:rounded-full rounded-md">
+                    <button
+                        class="lg:m-3 m-1 bg-yellow-500 hover:bg-yellow-400 text-white lg:text-base sm:text-base text-xs sm:px-4 sm:py-2.5 px-2.5 py-1.5 sm:rounded-full rounded-md">
                         <a href="{{ route('landing.novels.show', $chapter->novel_id) }}">Beri Rating</a>
-                    <button>
+                        <button>
                 </div>
                 <div id="navigation_controls">
-                    <button class="lg:m-3 m-1 lg:text-xl text:xs sm:text-xl border bg-gray-100 hover:bg-gray-200 rounded-full" id="go_previous"><i class="fa-solid fa-arrow-left sm:p-3 p-1.5"></i></button>
-                    <button class="lg:m-3 m-1 lg:text-xl text:xs sm:text-xl border bg-gray-100 hover:bg-gray-200 rounded-full" id="go_next"><i class="fa-solid fa-arrow-right sm:p-3 p-1.5"></i></button>
+                    <button
+                        class="lg:m-3 m-1 lg:text-xl text:xs sm:text-xl border bg-gray-100 hover:bg-gray-200 rounded-full"
+                        id="go_previous"><i class="fa-solid fa-arrow-left sm:p-3 p-1.5"></i></button>
+                    <button
+                        class="lg:m-3 m-1 lg:text-xl text:xs sm:text-xl border bg-gray-100 hover:bg-gray-200 rounded-full"
+                        id="go_next"><i class="fa-solid fa-arrow-right sm:p-3 p-1.5"></i></button>
                 </div>
             </div>
 
         </div>
     </div>
+
+    @foreach ($chapters as $chapter)
+        {{ $chapter->title }}
+    @endforeach
 
     @push('js')
         <script>
@@ -73,4 +82,6 @@
             });
         </script>
     @endpush
+
+
 </x-landing-layout>
