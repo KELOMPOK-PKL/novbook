@@ -40,8 +40,8 @@
         <br />
         <div>
             <p class="font-semibold text-3xl mx-8">Description</p>
-            <div class="grid grid-cols-2">
-                <p class="m-8 text-gray-700 text-lg leading-7">{{ $novelCategory->description }}</p>
+            <div class="">
+                <p class="m-8 text-gray-700 text-sm leading-7">{{ $novelCategory->description }}</p>
             </div>
         </div>
     </div>
