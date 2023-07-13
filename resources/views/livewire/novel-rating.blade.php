@@ -7,7 +7,7 @@
             </div>
             <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
                 <div class="px-6 py-12 md:px-12">
-                    <h2 class="mb-20 text-2xl font-bold text-center md:text-left text-black">
+                    <h2 class="mb-6 text-2xl font-bold text-center md:text-left text-black">
                         {{ $novel->title }}
                     </h2>
                     <div>
