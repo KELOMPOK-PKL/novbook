@@ -55,7 +55,7 @@
                     </svg>
                 </button>
             @endfor
-            <p class="text-black">{{ $rating->comment }}</p>
+            <p class="text-black mb-3">{{ $rating->comment }}</p>
 
             @auth
                 @if ($showFormEdit == true && $rating->user->id == auth()->user()->id)
@@ -84,6 +84,7 @@
                     </div>
                 @endif
             @endauth
+            <hr class="py-3">
         </div>
         @empty
 @endforelse
