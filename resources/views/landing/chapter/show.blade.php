@@ -27,7 +27,7 @@
     @foreach ($chapters as $chapter)
         {{ $chapter->title }}
     @endforeach
-
+    {{ $novel->title }}
     @push('js')
         <script>
             var pdfUrl = "{{ asset('storage/' . $chapter->pdf) }}";
