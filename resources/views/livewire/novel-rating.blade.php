@@ -5,17 +5,15 @@
                 <img src="{{ asset('storage/' . $novel->image) }}" alt="..."
                     class="container w-2/3 h-2/3 rounded-lg my-8" />
             </div>
-            <div class="w-full  shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
-                <div class="px-6 -mt-24 md:px-12">
-                    <h2 class="mb-10 text-2xl font-bold text-center md:text-left text-black">
+            <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
+                <div class="px-6 py-12 md:px-12">
+                    <h2 class="mb-20 text-2xl font-bold text-center md:text-left text-black">
                         {{ $novel->title }}
                     </h2>
                     <div>
-                        <p class="text-gray-800">
+                        <p class=" text-gray-800">
                             {{ $novel->description }}
                         </p>
-                    </div>
-                    <div class="mt-10">
                         <p class=" mt-5 font-semibold text-black">Beri Rating</p>
                         <div class="flex justify-start items-start mt-2 ">
                             <span class="flex flex-row-reverse">
@@ -53,27 +51,22 @@
 
                         </div>
                         <div class="grid grid-cols-3 gap-1 text-center md:text-left">
-                            <p class="text-neutral-800 mt-5">
+                            <p class="text-neutral-800 mt-10">
                                 <i class="fa-sharp fa-solid fa-eye"></i>
                                 {{ $novel->views_count > 1000 ? number_format($novel->views_count / 1000, 1, ',', '.') : $novel->views_count }}
                                 @if ($novel->views_count > 1000)
                                     k
                                 @endif
                             </p>
-                            <p class="text-neutral-800 mt-5 ">
+                            <p class="text-neutral-800 mt-10 ">
                                 <i class="fa-solid fa-star"></i>
                                 {{ $averageRating }}
                             </p>
-                            <p class="text-neutral-800 mt-5 ">
+                            <p class="text-neutral-800 mt-10 ">
                                 <a href="{{ route('landing.chapters.index', $novel->id) }}"> <i
                                         class="fa-solid fa-list"></i> </a>
                                 {{ $novel->chapters->count() }}
                             </p>
-                        </div>
-                        <div class="mt-10">
-                            <x-button>
-                                <a href="{{ route('landing.chapters.show', $novel->id) }}">Mulai Membaca</a>
-                            </x-button>
                         </div>
                     </div>
                 </div>
