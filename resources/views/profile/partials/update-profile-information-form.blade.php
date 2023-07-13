@@ -8,28 +8,6 @@
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
-    <div class="space-y-2 flex mt-5">
-        <div class="relative">
-            <div class="z-10">
-                <img @if (!empty(auth()->user()->avatar)) src="{{ asset('storage/' . auth()->user()->avatar) }}"
-                @else
-                src="{{ asset('https://sauvegardewzc.be/wp-content/uploads/2019/03/default-avatar-768x768.png') }}" @endif
-                    alt="Avatar" class="w-[128px] h-[128px] rounded-full" alt="" srcset="">
-            </div>
-            <div class=" bottom-0 left-2 absolute">
-                <label class="cursor-pointer">
-                    <p
-                        class="ml-20 bg-gray-300 text-gray-500 text-xl text-center text w-10 h-15 rounded-full justify-center items-center ">
-                        <i class="fa-solid fa-image"></i>
-                    </p>
-                    <input id="avatar" name="avatar" type="file" autocomplete="name" class="hidden"
-                        :multiple="multiple" :accept="accept" />
-                </label>
-            </div>
-        </div>
-
-        <x-form.error :messages="$errors->get('avatar')" />
-    </div>
 
     <form id="send-verification" method="post" action="{{ route('landing.verification.send') }}">
         @csrf
@@ -39,6 +17,28 @@
         class="mt-6 space-y-6">
         @csrf
         @method('patch')
+        <div class="space-y-2 flex mt-5">
+            <div class="relative">
+                <div class="z-10">
+                    <img @if (!empty(auth()->user()->avatar)) src="{{ asset('storage/' . auth()->user()->avatar) }}"
+                    @else
+                    src="{{ asset('https://sauvegardewzc.be/wp-content/uploads/2019/03/default-avatar-768x768.png') }}" @endif
+                        alt="Avatar" class="w-[128px] h-[128px] rounded-full" alt="" srcset="">
+                </div>
+                <div class=" bottom-0 left-2 absolute">
+                    <label class="cursor-pointer">
+                        <p
+                            class="ml-20 bg-gray-300 text-gray-500 text-xl text-center text w-10 h-15 rounded-full justify-center items-center ">
+                            <i class="fa-solid fa-image"></i>
+                        </p>
+                        <input id="avatar" name="avatar" type="file" autocomplete="name" class="hidden"
+                            :multiple="multiple" :accept="accept" />
+                    </label>
+                </div>
+            </div>
+
+            <x-form.error :messages="$errors->get('avatar')" />
+        </div>
 
         <div class="space-y-2">
             <x-form.label for="name" :value="__('Name')" />
