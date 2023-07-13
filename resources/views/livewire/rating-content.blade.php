@@ -9,7 +9,7 @@
                         class="ml-2 text-sm mt-0.5 text-black">{{ $rating->created_at->format('j M Y, g:i a') }}</small>
                 </div>
 
-                <div class="ml-96">
+                <div>
                     @auth
                         @if ($rating->user->id == auth()->user()->id)
                             <div class="items-end">
