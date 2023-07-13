@@ -1,6 +1,5 @@
 <nav class="fixed z-30 w-full text-gray-700 bg-white">
-    <div x-data="{ open: false }"
-        class="flex flex-col items-center max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+    <div x-data="{ open: false }" class="flex flex-col items-center max-w-screen-xl px-4 mx-auto md:flex-row md:px-6">
         <div class="p-4 flex flex-row items-center justify-between">
             <a href="{{ route('landing.home') }}"
                 class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">
@@ -18,12 +17,12 @@
             </button>
         </div>
         <div :class="{ 'flex': open, 'hidden': !open }"
-            class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+            class="flex-col flex-grow md:flex md:justify-end md:flex-row">
             <x-navbar.link href="{{ route('landing.home') }}">Home</x-navbar.link>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
                     class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                    <span>Category</span>
+                    <span>Kategori</span>
                     <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
                         class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
                         <path fill-rule="evenodd"
@@ -43,8 +42,7 @@
                     </div>
                 </div>
             </div>
-            <x-navbar.link href="{{ route('landing.contact.index') }}">Contact</x-navbar.link>
-
+            <x-navbar.link href="{{ route('landing.contact.index') }}">Kontak</x-navbar.link>
         </div>
         <div class="ml-5">
             <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
@@ -59,17 +57,17 @@
                 <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton1">
                     <li>
                         <a href="{{ route('landing.profile.edit') }}"
-                            class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Profile</a>
+                            class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Profil</a>
                     </li>
                     <li>
                         <form method="POST" action="{{ route('landing.logout') }}">
                             @csrf
                             <button type="submit"
-                                class="block w-24 text-left px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Logout</button>
+                                class="block w-24 text-left px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Keluar</button>
                         </form>
                     </li>
                 </ul>
             </div>
-        </div> 
+        </div>
     </div>
 </nav>
