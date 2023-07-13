@@ -38,7 +38,7 @@
                                     @if ($showCommentForm == true)
                                         <div class="my-5 flex flex-col">
                                             <textarea name=""
-                                                class="p-2 border-gray-400 rounded-md focus:border-gray-400 focus:ring
+                                                class="p-2 w-full border-gray-400 rounded-md focus:border-gray-400 focus:ring
                                        focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white text-black"
                                                 id="" cols="80" rows="5" wire:model="comment"></textarea>
                                             <button
