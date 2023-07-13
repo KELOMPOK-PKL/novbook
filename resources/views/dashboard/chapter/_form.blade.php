@@ -30,7 +30,7 @@
 @if (!request()->routeIs('dashboard.chapter.create'))
     <div class="mb-3">
         <x-form.label for="pdf" :value="__('Previous pdf')" class="font-semibold text-lg" />
-        <iframe src="{{ asset('storage/' . $chapter->pdf) }}" width="100px" alt="...">
+        <embed src="{{ asset('storage/' . $chapter->pdf) }}" width="100px" alt="...">
     </div>
 @endif
 @if (!request()->routeIs('dashboard.chapter.show'))
