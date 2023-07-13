@@ -1,7 +1,7 @@
 <x-landing-layout>
     <div class="flex justify-center items-center">
         <div class="m-8 w-3/4 border-gray-300 rounded-lg bg-white shadow-lg">
-            <div class="p-5">
+            <div class="pb-5">
                 <canvas id="my_canvas"></canvas>
             </div>
             <div class="flex flex-wrap w-full justify-between lg:pb-16 lg:px-24 sm:pb-12 sm:px-20 pb-6 px-6">
@@ -15,7 +15,7 @@
                     <button class="lg:m-3 m-1 lg:text-xl text:xs sm:text-xl border bg-gray-100 hover:bg-gray-200 rounded-full" id="go_next"><i class="fa-solid fa-arrow-right sm:p-3 p-1.5"></i></button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
