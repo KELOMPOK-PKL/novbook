@@ -17,7 +17,7 @@
                     <h5 class="mb-2 font-medium uppercase text-center">Adress</h5>
                 </a>
                 <div>
-                    <a class="flex items-center space-x-3 hover:text-sky-400 transition m-7">
+                    <a href="https://www.google.com/maps/place/Vistech+Software+House/@-8.0206541,112.623778,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd7ff6464e13253:0x2fb0543a5667d6fb!8m2!3d-8.0206594!4d112.6263529!16s%2Fg%2F11fsvqpmpm?authuser=0&entry=ttu" class="flex items-center space-x-3 hover:text-sky-400 transition m-7">
                         <svg class="text-white w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 384 512">
                             <path
@@ -27,7 +27,7 @@
                             Sukun,<br> Kota Malang, Jawa Timur 65149</span>
                     </a>
 
-                    <a class="flex items-center space-x-3 hover:text-sky-400 transition ml-8">
+                    <a href="mailto:novbook.ebook@gmail.com" class="flex items-center space-x-3 hover:text-sky-400 transition ml-7">
                         <svg class="text-white w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 512 512">
                             <path
@@ -36,7 +36,7 @@
                         <span class="text-sm">novbook.ebook@gmail.com</span>
                     </a>
 
-                    <a class="flex items-center space-x-3 hover:text-sky-400 transition p-8">
+                    <a href="tel://082345886291" class="flex items-center space-x-3 hover:text-sky-400 transition p-7">
                         <svg class="text-white w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 512 512">
                             <path
