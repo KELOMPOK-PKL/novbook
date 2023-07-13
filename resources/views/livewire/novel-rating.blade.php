@@ -68,6 +68,11 @@
                                 {{ $novel->chapters->count() }}
                             </p>
                         </div>
+                        <div class="mt-8">
+                            <x-button >
+                                <a href="{{route('landing.chapters.show', $novel->id)}}">Mulai Membaca</a>
+                            </x-button>
+                        </div>
                     </div>
                 </div>
             </div>
