@@ -39,14 +39,14 @@
             </div>
         </div>
         <div class="mt-10 container ">
-            <a class="font-semibold text-2xl p-8 text-black">Terpopular</a>
+            <a class="font-semibold text-2xl p-8 text-black">Cerita Pendek</a>
             <div>
                 <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8">
                     @php
                         $count = 0;
                     @endphp
                     @foreach ($novels as $n)
-                        @if ($count < 6 && $n->category->title == 'Terpopular')
+                        @if ($count < 6 && $n->category->title == 'Cerita Pendek')
                             <x-content.card>
                                 <a href="{{ route('landing.novels.show', $n->id)}}">
                                     <img class="w-full h-52 md:h-72 object-cover " src="{{ asset('storage/' . $n->image) }}"
@@ -85,14 +85,14 @@
         <div class="bg-slate-100">
             <div class="container">
                 <div>
-                    <p class="font-semibold text-2xl text-black pt-8 px-8">Romansa</p>
+                    <p class="font-semibold text-2xl text-black pt-8 px-8">Horor</p>
                 </div>
                 <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 p-8">
                     @php
                         $count = 0;
                     @endphp
                     @foreach ($novels as $n)
-                        @if ($count < 5 && $n->category->title == 'Romansa')
+                        @if ($count < 5 && $n->category->title == 'Horor')
                             <div class="rounded-lg overflow-hidden bg-slate-100 bg-cover bg-no-repeat">
                                 <a href="{{ route('landing.novels.show', $n->id)}}">
                                     <img class="w-full h-52 md:h-72 object-cover rounded-lg" src="{{ asset('storage/' . $n->image) }}"

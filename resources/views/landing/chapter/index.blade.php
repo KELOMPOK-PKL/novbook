@@ -1,15 +1,28 @@
 <x-landing-layout>
     <div class="m-8 border-gray-300 rounded-lg bg-white shadow-lg">
-        <div class="m-10">
-            <ul class="w-full m-5">
+        <div class="m-10 grid grid-cols-2">
+            <div class="left-grid">
                 @foreach ($chapters as $chapter)
-                <a href="{{route('landing.chapters.show',$chapter->id)}}}">
-                <li class="w-full border-b-2 border-gray-100 border-opacity-100 py-4  ">
-                   <p class="ml-5">{{$chapter->title}}</p>
-                </li>
+                @if ($chapter->id % 2 == 1)
+                <a href="{{ route('landing.chapters.show', $chapter->id) }}">
+                    <div class="w-3/4 border-b border-gray-300 border-opacity-300 py-4">
+                        <p class="text-lg font-medium">{{ $chapter->title }}</p>
+                    </div>
                 </a>
+                @endif
                 @endforeach
-            </ul>
+            </div>
+            <div class="right-grid">
+                @foreach ($chapters as $chapter)
+                @if ($chapter->id % 2 == 0)
+                <a href="{{ route('landing.chapters.show', $chapter->id) }}">
+                    <div class="w-3/4 border-b border-gray-300 border-opacity-300 py-4">
+                        <p class="text-lg font-medium">{{ $chapter->title }}</p>
+                    </div>
+                </a>
+                @endif
+                @endforeach
+            </div>
         </div>
     </div>
 </x-landing-layout>

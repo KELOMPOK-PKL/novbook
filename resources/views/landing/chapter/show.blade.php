@@ -1,16 +1,18 @@
 <x-landing-layout>
-    <div class="m-8 border-gray-300 rounded-lg bg-white shadow-lg">
-        <div class="p-5">
-            <canvas id="my_canvas"></canvas>
-        </div>
-        <div id="navigation_controls" class="flex w-full justify-between">
-            <x-button id="go_previous">Previous</x-button>
-            <x-button id="go_next">Next</x-button>
-        </div>
-        <div>
-            <x-button>
-                <a href="{{ route('landing.chapters.index', $chapter->novel_id)}}">Back</a>
-            </x-button>
+    <div class="flex justify-center items-center">
+        <div class="m-8 w-3/4 border-gray-300 rounded-lg bg-white shadow-lg">
+            <div class="p-5">
+                <canvas id="my_canvas"></canvas>
+            </div>
+            <div id="navigation_controls" class="flex w-full justify-between">
+                <x-button class="m-4" id="go_previous">Previous</x-button>
+                <x-button class="m-4" id="go_next">Next</x-button>
+            </div>
+            <div>
+                <x-button class="m-2">
+                    <a href="{{ route('landing.chapters.index', $chapter->novel_id) }}">Back</a>
+                </x-button>
+            </div>
         </div>
     </div>
 

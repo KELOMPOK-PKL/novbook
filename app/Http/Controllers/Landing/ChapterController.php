@@ -17,7 +17,7 @@ class ChapterController extends Controller
      */
     public function show(Chapter $chapter)
     {
-        // \dd($chapter);
+
         return view('landing.chapter.show', compact('chapter'));
     }
 }
