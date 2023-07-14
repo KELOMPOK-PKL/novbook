@@ -25,29 +25,31 @@
                         id="go_next"><i class="fa-solid fa-arrow-right sm:p-3 p-1.5"></i></button>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
+
     <div class="flex justify-center items-center">
         <div class="m-8 w-3/4 flex items-center border-gray-300 rounded-lg bg-white shadow-lg">
             <div class="w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                 <img src="{{ asset('storage/' . $novel->image) }}" alt="..."
                     class="container w-2/3 h-2/3 rounded-lg my-8" />
-                <div class="px-6 py-12">
-                    <h2 class="mb-6 text-xl font-bold text-center md:text-left text-black">
-                        {{ $novel->title }}
-                    </h2>
-                    <div class="ml-6">
-                    @foreach ($chapters as $chapter)
-                        <a href="{{ route('landing.chapters.show', $chapter->id) }}">
-                            <div class="w-full border-b-2 border-gray-100 border-opacity-100 py-4">
-                                <p>{{ $chapter->title }}</p>
-                            </div>
-                        </a>
-                    @endforeach
+            </div>
+            <div class="px-6 py-12 w-full">
+                <h2 class="mb-10 text-xl font-bold text-center md:text-left text-black">
+                    {{ $novel->title }}
+                </h2>
+                <div class="ml-6 mt-5">
+                    <div class="overflow-y-auto max-h-52 ">
+                        @foreach ($chapters as $chapter)
+                            <a href="{{ route('landing.chapters.show', $chapter->id) }}">
+                                <div class="w-full border-b-2 border-gray-100 border-opacity-100 py-4">
+                                    <p>{{ $chapter->title }}</p>
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 
