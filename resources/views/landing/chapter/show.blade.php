@@ -28,86 +28,89 @@
 
         </div>
     </div>
-
-    <div class="flex justify-center items-center">
-        <div class="m-8 w-3/4 flex items-center border-gray-300 rounded-lg bg-white shadow-lg">
+   <div class="flex justify-center items-center mb-10">
+    <div class="w-3/4 h-3/4 rounded-lg bg-white shadow-lg">
+        <div class="flex flex-wrap items-center">
             <div class="w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                 <img src="{{ asset('storage/' . $novel->image) }}" alt="..."
                     class="container w-2/3 h-2/3 rounded-lg my-8" />
             </div>
-            <div class="px-6 py-12 w-full">
-                <h2 class="mb-10 text-xl font-bold text-center md:text-left text-black">
-                    {{ $novel->title }}
-                </h2>
-                <div class="ml-6 mt-5">
-                    <div class="overflow-y-auto max-h-52 ">
-                        @foreach ($chapters as $chapter)
-                            <a href="{{ route('landing.chapters.show', $chapter->id) }}">
-                                <div class="w-full border-b-2 border-gray-100 border-opacity-100 py-4">
-                                    <p>{{ $chapter->title }}</p>
-                                </div>
-                            </a>
-                        @endforeach
+            <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
+                <div class="px-6 py-12 md:px-12 w-full">
+                    <h2 class="mb-10 text-xl font-bold text-center md:text-left text-black">
+                        {{ $novel->title }}
+                    </h2>
+                    <div class="ml-6 mt-5">
+                        <div class="overflow-y-auto max-h-52 ">
+                            @foreach ($chapters as $chapter)
+                                <a href="{{ route('landing.chapters.show', $chapter->id) }}">
+                                    <div class="w-full border-b-2 border-gray-100 border-opacity-100 py-4">
+                                        <p>{{ $chapter->title }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
+   </div>
 
 
-    @push('js')
-        <script>
-            var pdfUrl = "{{ asset('storage/' . $chapter->pdf) }}";
-            var myState = {
-                pdf: null,
-                currentPage: 1
-            };
+        @push('js')
+            <script>
+                var pdfUrl = "{{ asset('storage/' . $chapter->pdf) }}";
+                var myState = {
+                    pdf: null,
+                    currentPage: 1
+                };
 
-            pdfjsLib.getDocument(pdfUrl).promise.then(function(doc) {
-                console.log("Dokumen berisi " + doc.numPages + " halaman");
-                myState.pdf = doc;
+                pdfjsLib.getDocument(pdfUrl).promise.then(function(doc) {
+                    console.log("Dokumen berisi " + doc.numPages + " halaman");
+                    myState.pdf = doc;
 
-                render();
-            });
-
-            function render() {
-                var canvas = document.getElementById('my_canvas');
-                var context = canvas.getContext('2d');
-                var currentPage = myState.currentPage;
-                var pdf = myState.pdf;
-
-                pdf.getPage(currentPage).then(function(page) {
-                    var viewport = page.getViewport({
-                        scale: 3
-                    });
-
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
-
-                    // Render halaman ke dalam canvas
-                    page.render({
-                        canvasContext: context,
-                        viewport: viewport
-                    });
+                    render();
                 });
-            }
 
-            document.getElementById('go_previous').addEventListener('click', (e) => {
-                if (myState.pdf == null || myState.currentPage === 1) {
-                    return;
-                }
-                myState.currentPage -= 1;
-                render();
-            });
+                function render() {
+                    var canvas = document.getElementById('my_canvas');
+                    var context = canvas.getContext('2d');
+                    var currentPage = myState.currentPage;
+                    var pdf = myState.pdf;
 
-            document.getElementById('go_next').addEventListener('click', (e) => {
-                if (myState.pdf == null || myState.currentPage >= myState.pdf.numPages) {
-                    return;
+                    pdf.getPage(currentPage).then(function(page) {
+                        var viewport = page.getViewport({
+                            scale: 3
+                        });
+
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+
+                        // Render halaman ke dalam canvas
+                        page.render({
+                            canvasContext: context,
+                            viewport: viewport
+                        });
+                    });
                 }
-                myState.currentPage += 1;
-                render();
-            });
-        </script>
-    @endpush
+
+                document.getElementById('go_previous').addEventListener('click', (e) => {
+                    if (myState.pdf == null || myState.currentPage === 1) {
+                        return;
+                    }
+                    myState.currentPage -= 1;
+                    render();
+                });
+
+                document.getElementById('go_next').addEventListener('click', (e) => {
+                    if (myState.pdf == null || myState.currentPage >= myState.pdf.numPages) {
+                        return;
+                    }
+                    myState.currentPage += 1;
+                    render();
+                });
+            </script>
+        @endpush
 
 
 </x-landing-layout>
