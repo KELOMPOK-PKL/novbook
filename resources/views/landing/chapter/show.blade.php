@@ -108,6 +108,7 @@
                     }
                     myState.currentPage += 1;
                     render();
+                    window.location.href = '#top';
                 });
             </script>
         @endpush
