@@ -1,11 +1,11 @@
 <x-landing-layout>
-    <div class="py-8 px-40">
-        <p class="font-bold text-2xl">
-            {{ $novel->title }}
-        </p>
-    </div>
     <div class="flex justify-center items-center">
         <div class="m-8 w-3/4 border-gray-300 rounded-xl bg-white shadow-lg">
+            <div class="pt-12 text-center">
+                <p class="font-bold text-2xl">
+                    {{ $novel->title }}
+                </p>
+            </div>
             <div class="p-5">
                 <canvas id="my_canvas"></canvas>
             </div>
