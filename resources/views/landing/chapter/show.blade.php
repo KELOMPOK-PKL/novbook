@@ -33,22 +33,18 @@
             <div class="w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                 <img src="{{ asset('storage/' . $novel->image) }}" alt="..."
                     class="container w-2/3 h-2/3 rounded-lg my-8" />
-            </div>
-            <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
-                <div class="px-6 py-12 md:px-12">
+                <div class="px-6 py-12">
                     <h2 class="mb-6 text-xl font-bold text-center md:text-left text-black">
                         {{ $novel->title }}
                     </h2>
                     <div class="ml-6">
-                        <div class="overflow-y-auto max-h-60 ">
-                            @foreach ($chapters as $chapter)
-                                <a href="{{ route('landing.chapters.show', $chapter->id) }}">
-                                    <div class="w-full border-b-2 border-gray-100 border-opacity-100 py-4">
-                                        <p>{{ $chapter->title }}</p>
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
+                    @foreach ($chapters as $chapter)
+                        <a href="{{ route('landing.chapters.show', $chapter->id) }}">
+                            <div class="w-full border-b-2 border-gray-100 border-opacity-100 py-4">
+                                <p>{{ $chapter->title }}</p>
+                            </div>
+                        </a>
+                    @endforeach
                     </div>
                 </div>
             </div>
