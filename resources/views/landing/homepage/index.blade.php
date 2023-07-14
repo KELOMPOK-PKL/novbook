@@ -92,7 +92,7 @@
                         $count = 0;
                     @endphp
                     @foreach ($novels as $n)
-                        @if ($count < 5 && $n->category->title == 'Horor')
+                        @if ($count < 6  && $n->category->title == 'Horor')
                             <div class="rounded-lg overflow-hidden bg-slate-100 bg-cover bg-no-repeat">
                                 <a href="{{ route('landing.novels.show', $n->id)}}">
                                     <img class="w-full h-52 md:h-72 object-cover rounded-lg" src="{{ asset('storage/' . $n->image) }}"
@@ -139,7 +139,7 @@
                             $count = 0;
                         @endphp
                         @foreach ($novels as $n)
-                            @if ($count < 5 && $n->category->title == 'Misteri')
+                            @if ($count < 6 && $n->category->title == 'Misteri')
                                 <x-content.card>
                                     <a href="{{ route('landing.novels.show', $n->id)}}">
                                         <img class="w-full h-52 md:h-72 object-cover" src="{{ asset('storage/' . $n->image) }}"

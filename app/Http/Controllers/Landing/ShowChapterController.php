@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Models\Novel;
 use App\Services\ChapterService;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,10 @@ class ShowChapterController extends Controller
     {
         $chapterView = $this->chapterView;
         $chapters = $this->chapterService->index()->where('novel_id', $id)->get();
+        $novel = Novel::find($id);
+        $novel_id = $novel->id;
+        // dd($novel_id);
 
-        return view($chapterView . 'index', compact('chapters'));
+        return view($chapterView . 'index', compact('chapters','novel_id'));
     }
 }
