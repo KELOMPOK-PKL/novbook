@@ -3,7 +3,7 @@
     <div class="container mx-auto py-8">
         <div class="grid gap-4 lg:grid-cols-2 grid-cols-1">
             <div class="mb-6 md:mb-0">
-                <h5 class="mb-2 font-medium uppercase text-center">About Us</h5>
+                <h5 class="mb-2 font-medium uppercase text-center">Tentang Kami</h5>
 
                 <p class="m-8 text-center text-sm">
                     Novbook adalah website penyedia Novel yang terbentuk di Malang, Jawa Timur.
@@ -14,7 +14,7 @@
 
             <div class="mb-6 md:mb-0 flex flex-col  justify-center  ">
                 <a href="{{ route('landing.contact.index') }}">
-                    <h5 class="mb-2 font-medium uppercase text-center">Adress</h5>
+                    <h5 class="mb-2 font-medium uppercase text-center">Hubungi Kami</h5>
                 </a>
                 <div>
                     <a href="https://www.google.com/maps/place/Vistech+Software+House/@-8.0206541,112.623778,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd7ff6464e13253:0x2fb0543a5667d6fb!8m2!3d-8.0206594!4d112.6263529!16s%2Fg%2F11fsvqpmpm?authuser=0&entry=ttu" class="flex items-center space-x-3 hover:text-sky-400 transition m-7">
@@ -27,7 +27,7 @@
                             Sukun,<br> Kota Malang, Jawa Timur 65149</span>
                     </a>
 
-                    <a href="mailto:novbook.ebook@gmail.com" class="flex items-center space-x-3 hover:text-sky-400 transition ml-7">
+                    <a href="https://mail.google.com/mail/?view=cm&to=novbook.ebook@gmail.com" class="flex items-center space-x-3 hover:text-sky-400 transition ml-7">
                         <svg class="text-white w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 512 512">
                             <path
