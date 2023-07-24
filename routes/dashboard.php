@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('Dashboard.dashboard');
-})->middleware(['auth', 'verified', 'role:admin'])->name('home');
+Route::get('/', 'Dashboard\HomeController')->middleware(['auth', 'verified', 'role:admin'])->name('home');
 
 
 Route::middleware('auth','role:admin')->group(function () {
