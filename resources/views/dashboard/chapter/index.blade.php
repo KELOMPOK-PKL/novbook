@@ -52,7 +52,7 @@
                                                 method="POST" onsubmit="return confirm('Are you sure?')">
                                                 <x-button variant="warning"
                                                     href="{{ route('dashboard.chapter.edit', $chapter->id) }}">
-                                                    <i class="fa-regular fa-pen-to-square"></i>
+                                                    <i class="fa-solid fa-pen-to-square"></i>
                                                 </x-button>
                                                 <x-button variant="info"
                                                     href="{{ route('dashboard.chapter.show', $chapter->id) }}">
