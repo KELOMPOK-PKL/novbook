@@ -27,7 +27,7 @@
             </a>
         </div>
         <div class="p-6 mt-5 w-1/3 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1 m-2" >
-            <a class="flex" href="{{route('dashboard.novel.index')}}">
+            <a class="flex" href="{{route('dashboard.novel-category.index')}}">
                 <div class="items-center text-center">
                     <div class="bg-orange-200 rounded-md">
                         <i class="fa-solid fa-bars text-xl px-5 py-4"></i>
@@ -55,7 +55,7 @@
             </a>
         </div>
         <div class="p-6 mt-5 w-1/3 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1 m-2" >
-            <a class="flex" href="{{route('dashboard.novel.index')}}">
+            <a class="flex" href="{{route('dashboard.chapter.index')}}">
                 <div class="items-center text-center">
                     <div class="bg-orange-200 rounded-md">
                         <i class="fa-solid fa-list text-xl px-5 py-4"></i>
