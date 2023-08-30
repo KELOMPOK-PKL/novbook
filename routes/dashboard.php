@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'Dashboard\HomeController')->middleware(['auth', 'verified', 'role:admin'])->name('home');
+Route::get('/', 'Dashboard\HomeController')->middleware(['auth', 'verified', 'role:admin|writer'])->name('home');
 
 
-Route::middleware('auth','role:admin')->group(function () {
+Route::middleware(['auth', 'role:admin|writer'])->group(function () {
     Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
     Route::patch('/profile', 'ProfileController@update')->name('profile.update');
     Route::delete('/profile', 'ProfileController@destroy')->name('profile.destroy');
@@ -13,4 +13,5 @@ Route::middleware('auth','role:admin')->group(function () {
     Route::resource('/novel', 'Dashboard\NovelController');
     Route::resource('/chapter', 'Dashboard\ChapterController');
     Route::resource('/novel-category', 'Dashboard\NovelCategoryController');
+    Route::resource('/user', 'Dashboard\UserController');
 });

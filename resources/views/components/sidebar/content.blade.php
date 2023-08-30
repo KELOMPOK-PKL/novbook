@@ -13,7 +13,7 @@
         'post',
     )">
         <x-slot name="icon">
-            <i class="fa-solid fa-folder ml-1"></i>
+            <i class="fa-solid fa-folder mx-1"></i>
         </x-slot>
 
         <x-sidebar.sublink title="Post" href="{{ route('dashboard.post.index') }}" :active="request()->routeIs('post')" />
@@ -27,7 +27,7 @@
         'post',
     )">
         <x-slot name="icon">
-            <i class="fa-solid fa-folder ml-1"></i>
+            <i class="fa-solid fa-folder mx-1"></i>
         </x-slot>
 
         <x-sidebar.sublink title="Novel" href="{{ route('dashboard.novel.index') }}" :active="request()->routeIs('novel')" />
@@ -36,6 +36,15 @@
             :active="request()->routeIs('novel-category')" />
 
     </x-sidebar.dropdown>
+
+    @role('admin')
+        <x-sidebar.link title="User" href="{{ route('dashboard.user.index') }}" :isActive="request()->routeIs('dashboard.user.index')">
+            <x-slot name="icon">
+                <i class="fa-solid fa-users mx-1"></i>
+            </x-slot>
+        </x-sidebar.link>
+    @else
+    @endrole
 
 
 </x-perfect-scrollbar>

@@ -16,8 +16,7 @@
                 </svg>
             </button>
         </div>
-        <div :class="{ 'flex': open, 'hidden': !open }"
-            class="flex-col flex-grow md:flex md:justify-end md:flex-row">
+        <div :class="{ 'flex': open, 'hidden': !open }" class="flex-col flex-grow md:flex md:justify-end md:flex-row">
             <x-navbar.link href="{{ route('landing.home') }}">Home</x-navbar.link>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
@@ -53,12 +52,19 @@
                     alt="Avatar" class="w-[40px] h-[40px] rounded-full" alt="" srcset="">
             </button>
             <div id="dropdownHover"
-                class="items-stretch hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-28">
+                class="items-stretch hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-auto">
                 <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton1">
                     <li>
                         <a href="{{ route('landing.profile.edit') }}"
                             class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Profil</a>
                     </li>
+                    @role('writer')
+                        <li>
+                            <a href="{{ route('dashboard.home') }}"
+                                class="block px-4 py-2 m-2 hover:rounded-md hover:bg-gray-300 cursor-pointer text-black">Upload
+                                Novel</a>
+                        </li>
+                    @endrole
                     <li>
                         <form method="POST" action="{{ route('landing.logout') }}">
                             @csrf
