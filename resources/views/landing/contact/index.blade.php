@@ -2,13 +2,12 @@
     <section class="max-w-5xl p-6 mx-auto rounded-md">
         <div class="container px-6 py-12 mx-auto">
             <div class="text-center">
-                <p class="font-bold text-blue-500 ">FIND US</p>
+                <p class="font-bold text-blue-500 ">TEMUKAN KAMI</p>
 
-                <h1 class="mt-2 text-2xl font-bold text-gray-800 md:text-3xl">CONTACT US</h1>
+                <h1 class="mt-2 text-2xl font-bold text-gray-800 md:text-3xl">HUBUNGI KAMI</h1>
 
-                <p data-aos="fade-up" data-aos-duration="2000" class="mt-8 text-gray-500">If you have
-                    questions about Novbook, you can contact us
-                    below.</p>
+                <p data-aos="fade-up" data-aos-duration="2000" class="mt-8 text-gray-500">Jika anda inggin menggupload
+                    novel karya anda silahkan hubungi kami di bawah ini.</p>
             </div>
 
             <form data-aos="fade-up" data-aos-duration="2000" class="mt-28" action="{{ route('landing.contact.send') }}"
@@ -42,9 +41,10 @@
                     SUBMIT
                 </button>
             </form>
-            <div data-aos="fade-up" data-aos-duration="2000" class="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto mt-6">
-                <iframe width="1000" height="300" frameborder="0" title="map" marginheight="0"
-                    marginwidth="0" scrolling="no"
+            <div data-aos="fade-up" data-aos-duration="2000"
+                class="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto mt-6">
+                <iframe width="1000" height="300" frameborder="0" title="map" marginheight="0" marginwidth="0"
+                    scrolling="no"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.789259394256!2d112.62377797374994!3d-8.020654080051852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7ff6464e13253%3A0x2fb0543a5667d6fb!2sVistech%20Software%20House!5e0!3m2!1sid!2sid!4v1687146022251!5m2!1sid!2sid"></iframe>
             </div>
         </div>
